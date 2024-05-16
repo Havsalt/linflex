@@ -1,0 +1,27 @@
+[project]
+name = "linear-algebra"
+dynamic = ["version"]
+description = "Add your description here"
+authors = [
+    { name = "FloatingInt", email = "knutolaihelgesen@gmail.com" }
+]
+dependencies = []
+readme = "README.md"
+requires-python = ">= 3.10"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.version]
+path = "linear_algebra/__init__.py"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["linear_algebra"]
