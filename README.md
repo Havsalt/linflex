@@ -1,3 +1,11 @@
-# linear-algebra
+# Linflex
 
-Describe your project here.
+A linear algebra package written in Python
+
+Includes:
+
+- lerp
+- sign
+- clamp
+- Vec2
+- Vec2i

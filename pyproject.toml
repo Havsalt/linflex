@@ -1,7 +1,7 @@
 [project]
-name = "linear-algebra"
+name = "linflex"
 dynamic = ["version"]
-description = "Add your description here"
+description = "A linear algebra package written in Python"
 authors = [
     { name = "FloatingInt", email = "knutolaihelgesen@gmail.com" }
 ]
@@ -18,10 +18,10 @@ managed = true
 dev-dependencies = []
 
 [tool.hatch.version]
-path = "linear_algebra/__init__.py"
+path = "linflex/__init__.py"
 
 [tool.hatch.metadata]
 allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
-packages = ["linear_algebra"]
+packages = ["linflex"]
