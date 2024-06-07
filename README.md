@@ -9,3 +9,4 @@ Includes:
 - clamp
 - Vec2
 - Vec2i
+- Vec3
