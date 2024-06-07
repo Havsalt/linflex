@@ -5,17 +5,17 @@ Linflex
 A linear algebra package written in Python
 
 Includes:
-- lerp
-- sign
-- clamp
-- Vec2
-- Vec2i
-- Vec3
+- `lerp`
+- `sign`
+- `clamp`
+- `Vec2`
+- `Vec2i`
+- `Vec3`
 """
 
 from __future__ import annotations as _annotations
 
-__version__ = "0.1.2"
+__version__ = "0.1.3"
 __all__ = [
     "lerp",
     "sign",
