@@ -16,6 +16,7 @@ from ._numerical_tools import (
 _Vec3 = _TypeVar("_Vec3", bound="Vec3")
 
 
+# TODO: implement lerp, sign, clamp, and possibly other functions
 class Vec3:
     """`Vector3` data structure
 
