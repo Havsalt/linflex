@@ -1,22 +1,13 @@
 from __future__ import annotations as _annotations
 
-from math import (
-    sqrt as _sqrt,
-    cos as _cos,
-    sin as _sin
-)
-from typing import TypeVar as _TypeVar, Iterator as _Iterator
+from math import sqrt, cos, sin, atan2, inf as INF
+from typing import Iterator
 
-from ._numerical_tools import (
-    lerp as _lerp,
-    sign as _sign,
-    clamp as _clamp
-)
+from typing_extensions import Self
 
-_Vec3 = _TypeVar("_Vec3", bound="Vec3")
+from ._numerical_tools import lerp, sign, clamp
 
 
-# TODO: implement lerp, sign, clamp, and possibly other functions
 class Vec3:
     """`Vector3` data structure
 
@@ -26,10 +17,37 @@ class Vec3:
     """
     __slots__ = ("x", "y", "z")
 
-    @classmethod
+    @property    
+    def ZERO(self) -> Self:
+        return self.__class__(0, 0, 0)
+    
     @property
-    def ZERO(cls: type[_Vec3]) -> _Vec3:
-        return cls(0, 0, 0)
+    def ONE(self) -> Self:
+        return self.__class__(1, 1, 1)
+    
+    @property
+    def LEFT(self) -> Self:
+        return self.__class__(-1, 0, 0)
+    
+    @property
+    def RIGHT(self) -> Self:
+        return self.__class__(1, 0, 0)
+
+    @property
+    def UP(self) -> Self:
+        return self.__class__(0, 1, 0)
+    
+    @property
+    def DOWN(self) -> Self:
+        return self.__class__(0, -1, 0)
+    
+    @property
+    def FORWARD(self) -> Self:
+        return self.__class__(0, 0, 1)
+    
+    @property
+    def BACKWARD(self) -> Self:
+        return self.__class__(0, 0, -1)
     
     def __init__(self, x: float = 0, y: float = 0, z: float = 0, /) -> None:
         self.x = x
@@ -39,7 +57,7 @@ class Vec3:
     def __len__(self) -> int:
         return 3
 
-    def __iter__(self) -> _Iterator[float]:
+    def __iter__(self) -> Iterator[float]:
         return iter((self.x, self.y, self.z))
     
     def __getitem__(self, item: int) -> float:
@@ -206,7 +224,7 @@ class Vec3:
         return Vec3(self.x, self.y, self.z)
 
     def length(self) -> float:
-        return _sqrt(self.x*self.x + self.y*self.y + self.z*self.z)
+        return sqrt(self.x*self.x + self.y*self.y + self.z*self.z)
 
     def normalized(self) -> Vec3:
         length = self.length()
@@ -215,9 +233,17 @@ class Vec3:
         return Vec3(self.x / length, self.y / length, self.z / length)
 
     def lerp(self, target: Vec3, /, weight: float) -> Vec3:
-        return Vec3(_lerp(self.x, target.x, weight),
-                    _lerp(self.y, target.y, weight),
-                    _lerp(self.z, target.z, weight))
+        return Vec3(lerp(self.x, target.x, weight),
+                    lerp(self.y, target.y, weight),
+                    lerp(self.z, target.z, weight))
+
+    def sign(self) -> Vec3:
+        return Vec3(sign(self.x), sign(self.y), sign(self.z))
+    
+    def clamped(self, smallest: Vec3, /, largest: Vec3) -> Vec3:
+        return Vec3(clamp(self.x, smallest.x, largest.x),
+                    clamp(self.y, smallest.y, largest.y),
+                    clamp(self.z, smallest.z, largest.z))
 
     def distance_to(self, target: Vec3, /) -> float:
         return (target - self).length()
@@ -227,33 +253,41 @@ class Vec3:
     
     def dot(self, other: Vec3, /) -> float:
         return self.x * other.x + self.y * other.y + self.z * other.z
-
+    
     def cross(self, other: Vec3, /) -> Vec3:
         x = self.y * other.z - self.z * other.y
         y = self.z * other.x - self.x * other.z
         z = self.x * other.y - self.y * other.x
         return Vec3(x, y, z)
+    
+    def angles(self) -> Vec3:
+        pitch = atan2(self.z, sqrt(self.x*self.x + self.y*self.y))
+        yaw = atan2(self.y, self.x)
+        return Vec3(pitch, yaw, 0)
+    
+    def angles_to(self, target: Vec3, /) -> Vec3:
+        return (target - self).angles()
 
     def to_tuple(self) -> tuple[float, float, float]:
         return (self.x, self.y, self.z)
 
     def rotate_around_x(self, angle: float, /) -> Vec3:
-        cos_theta = _cos(angle)
-        sin_theta = _sin(angle)
+        cos_theta = cos(angle)
+        sin_theta = sin(angle)
         new_y = self.y * cos_theta - self.z * sin_theta
         new_z = self.y * sin_theta + self.z * cos_theta
         return Vec3(self.x, new_y, new_z)
 
     def rotate_around_y(self, angle: float, /) -> Vec3:
-        cos_theta = _cos(angle)
-        sin_theta = _sin(angle)
+        cos_theta = cos(angle)
+        sin_theta = sin(angle)
         new_x = self.x * cos_theta + self.z * sin_theta
         new_z = -self.x * sin_theta + self.z * cos_theta
         return Vec3(new_x, self.y, new_z)
 
     def rotate_around_z(self, angle: float, /) -> Vec3:
-        cos_theta = _cos(angle)
-        sin_theta = _sin(angle)
+        cos_theta = cos(angle)
+        sin_theta = sin(angle)
         new_x = self.x * cos_theta - self.y * sin_theta
         new_y = self.x * sin_theta + self.y * cos_theta
         return Vec3(new_x, new_y, self.z)
@@ -266,7 +300,7 @@ class Vec3:
             .rotate_around_z(angles.z)
             )
     
-    def rotated_around(self, target: Vec3, angles: Vec3, /) -> Vec3:
+    def rotated_around(self, target: Vec3, /, angles: Vec3) -> Vec3:
         # FIXME: rotate properly
         rel = self - target
         return (

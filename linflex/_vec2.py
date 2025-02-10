@@ -1,21 +1,10 @@
 from __future__ import annotations as _annotations
 
-from math import (
-    sqrt as _sqrt,
-    cos as _cos,
-    sin as _sin,
-    atan2 as _atan2,
-    inf as _INF
-)
-from typing import TypeVar as _TypeVar
+from math import sqrt, cos, sin, atan2, inf as INF
 
-from ._numerical_tools import (
-    lerp as _lerp,
-    sign as _sign,
-    clamp as _clamp
-)
+from typing_extensions import Self
 
-_Vec2 = _TypeVar("_Vec2", bound="Vec2")
+from ._numerical_tools import lerp, sign, clamp
 
 
 class Vec2:
@@ -27,40 +16,33 @@ class Vec2:
     """
     __slots__ = ("x", "y")
 
-    @classmethod
     @property
-    def ZERO(cls: type[_Vec2]) -> _Vec2:
-        return cls(0, 0)
+    def ZERO(self) -> Self:
+        return self.__class__(0, 0)
 
-    @classmethod
     @property
-    def ONE(cls: type[_Vec2]) -> _Vec2:
-        return cls(1, 1)
+    def ONE(self) -> Self:
+        return self.__class__(1, 1)
     
-    @classmethod
     @property
-    def INF(cls: type[_Vec2]) -> _Vec2:
-        return cls(_INF, _INF)
+    def INF(self) -> Self:
+        return self.__class__(INF, INF)
     
-    @classmethod
     @property
-    def LEFT(cls: type[_Vec2]) -> _Vec2:
-        return cls(-1, 0)
+    def LEFT(self) -> Self:
+        return self.__class__(-1, 0)
     
-    @classmethod
     @property
-    def RIGHT(cls: type[_Vec2]) -> _Vec2:
-        return cls(1, 0)
+    def RIGHT(self) -> Self:
+        return self.__class__(1, 0)
     
-    @classmethod
     @property
-    def UP(cls: type[_Vec2]) -> _Vec2:
-        return cls(0, 1)
+    def UP(self) -> Self:
+        return self.__class__(0, 1)
 
-    @classmethod
     @property
-    def DOWN(cls: type[_Vec2]) -> _Vec2:
-        return cls(0, -1)
+    def DOWN(self) -> Self:
+        return self.__class__(0, -1)
 
     def __init__(self, x: float = 0, y: float = 0, /) -> None:
         """Initializes the Vec2
@@ -239,9 +221,9 @@ class Vec2:
         """
         if self.x == 0 and self.y == 0:
             return 0.0
-        return _sqrt(self.x*self.x + self.y*self.y)
+        return sqrt(self.x*self.x + self.y*self.y)
     
-    def distance_to(self, other: Vec2) -> float:
+    def distance_to(self, other: Vec2, /) -> float:
         """Returns the relative distance to the other point
 
         Args:
@@ -263,7 +245,7 @@ class Vec2:
             return Vec2(0, 0)
         return self / self.length()
     
-    def dot(self, other: Vec2) -> float:
+    def dot(self, other: Vec2, /) -> float:
         """Returns the dot product between two 2D vectors
 
         Args:
@@ -273,8 +255,19 @@ class Vec2:
             float: dot product
         """
         return self.x * other.x + self.y * other.y
+    
+    def cross(self, other: Vec2, /) -> float:
+        """Returns the cross product between two 2D vectors
 
-    def direction_to(self, other: Vec2) -> Vec2:
+        Args:
+            other (Vec2): other vector
+
+        Returns:
+            float: cross product
+        """
+        return self.x * other.y - self.y * other.x
+
+    def direction_to(self, other: Vec2, /) -> Vec2:
         """Returns the direction to the other point
 
         Args:
@@ -285,15 +278,15 @@ class Vec2:
         """
         return (other - self).normalized()
 
-    def angle(self) -> float:
+    def angle(self, /) -> float:
         """Returns the angle (measured in radians), using atan2
 
         Returns:
             float: angle given in radians
         """
-        return _atan2(self.y, self.x)
+        return atan2(self.y, self.x)
 
-    def angle_to(self, other: Vec2) -> float:
+    def angle_to(self, other: Vec2, /) -> float:
         """Returns the angle (measured in radians) to the other point
 
         Args:
@@ -304,7 +297,7 @@ class Vec2:
         """
         return (other - self).angle()
 
-    def lerp(self, target: Vec2, weight: float, /) -> Vec2:
+    def lerp(self, target: Vec2, /, weight: float) -> Vec2:
         """Lerp towards vector `target` with `weight` ranging from 0 to 1
 
         Args:
@@ -314,8 +307,8 @@ class Vec2:
         Returns:
             Vec2: vector after performing interpolation
         """
-        return Vec2(_lerp(self.x, target.x, weight),
-                    _lerp(self.y, target.y, weight))
+        return Vec2(lerp(self.x, target.x, weight),
+                    lerp(self.y, target.y, weight))
 
     def sign(self) -> Vec2:
         """Returns a Vec2 with each component being the sign of the vector
@@ -323,9 +316,9 @@ class Vec2:
         Returns:
             Vec2: vector with signed components
         """
-        return Vec2(_sign(self.x), _sign(self.y))
+        return Vec2(sign(self.x), sign(self.y))
 
-    def clamped(self, smallest: Vec2, largest: Vec2, /) -> Vec2:
+    def clamped(self, smallest: Vec2, largest: Vec2) -> Vec2:
         """Returns a new clamped vector
 
         Args:
@@ -335,8 +328,8 @@ class Vec2:
         Returns:
             Vec2: vector clamped
         """
-        return Vec2(_clamp(self.x, smallest.x, largest.x),
-                    _clamp(self.y, smallest.y, largest.y))
+        return Vec2(clamp(self.x, smallest.x, largest.x),
+                    clamp(self.y, smallest.y, largest.y))
     
     def rotated(self, angle: float, /) -> Vec2:
         """Returns a vector rotated by `angle` given in radians
@@ -347,13 +340,13 @@ class Vec2:
         Returns:
             Vec2: rotated vector
         """
-        cos_rad = _cos(angle)
-        sin_rad = _sin(angle)
+        cos_rad = cos(angle)
+        sin_rad = sin(angle)
         x = cos_rad * self.x + sin_rad * self.y
         y = -sin_rad * self.x + cos_rad * self.y
         return Vec2(x, y)
     
-    def rotated_around(self, angle: float, point: Vec2, /) -> Vec2:
+    def rotated_around(self, angle: float, point: Vec2) -> Vec2:
         """Returns a vector rotated by `angle` given in radians, around `point`
 
         Args:
@@ -364,8 +357,8 @@ class Vec2:
             Vec2: vector rotated around `point`
         """
         diff = self - point
-        cos_rad = _cos(angle)
-        sin_rad = _sin(angle)
+        cos_rad = cos(angle)
+        sin_rad = sin(angle)
         x = point.x + cos_rad * diff.x + sin_rad * diff.y
         y = point.y + -sin_rad * diff.x + cos_rad * diff.y
         return Vec2(x, y)
