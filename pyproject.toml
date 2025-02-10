@@ -9,8 +9,8 @@ dependencies = [
     "typing-extensions>=4.4.0",
 ]
 readme = "README.md"
+license = { file = "LICENSE.txt" }
 requires-python = ">= 3.10"
-license = { text = "MIT" }
 
 [project.urls]
 Source = "https://github.com/havsalt/linflex.git"
@@ -22,9 +22,6 @@ build-backend = "hatchling.build"
 [tool.rye]
 managed = true
 dev-dependencies = []
-
-[tool.hatch.version]
-path = "linflex/__init__.py"
 
 [tool.hatch.metadata]
 allow-direct-references = true
