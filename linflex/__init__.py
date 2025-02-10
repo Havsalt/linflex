@@ -13,8 +13,6 @@ Includes:
 - `Vec3`
 """
 
-from __future__ import annotations as _annotations
-
 __all__ = [
     "lerp",
     "sign",
