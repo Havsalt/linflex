@@ -1,6 +1,6 @@
 [project]
 name = "linflex"
-version = "0.1.3"
+version = "0.2.0"
 description = "A linear algebra package written in Python"
 authors = [
     { name = "Havsalt", email = "77575424+Havsalt@users.noreply.github.com" }
