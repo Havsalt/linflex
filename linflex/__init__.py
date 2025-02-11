@@ -1,10 +1,12 @@
 """
 Linflex
--------
+=======
 
 A linear algebra package written in Python
 
-Includes:
+Includes
+--------
+
 - `lerp`
 - `sign`
 - `clamp`
@@ -13,14 +15,14 @@ Includes:
 - `Vec3`
 """
 
-__all__ = [
+__all__ = (
     "lerp",
     "sign",
     "clamp",
     "Vec2",
     "Vec2i",
     "Vec3"
-]
+)
 
 from ._numerical_tools import lerp, sign, clamp
 from ._vec2 import Vec2
