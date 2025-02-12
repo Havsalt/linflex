@@ -1,7 +1,7 @@
 from __future__ import annotations as _annotations
 
 from math import sqrt, cos, sin, atan2, inf as INF
-from typing import TypeVar, Callable
+from typing import TypeVar
 
 from typing_extensions import Self
 
