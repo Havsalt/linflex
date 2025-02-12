@@ -1,10 +1,23 @@
 from __future__ import annotations as _annotations
 
 from math import sqrt, cos, sin, atan2, inf as INF
+from typing import TypeVar, Callable
 
 from typing_extensions import Self
 
 from ._numerical_tools import lerp, sign, clamp
+
+
+T = TypeVar("T")
+
+
+# TODO: Add the remaining annotations
+class class_constant:
+    def __init__(self, method) -> None:
+        self.fget = method
+    
+    def __get__(self, _instance, owner: type[T]) -> T:
+        return self.fget(owner)
 
 
 class Vec2:
@@ -16,33 +29,35 @@ class Vec2:
     """
     __slots__ = ("x", "y")
 
-    @property
-    def ZERO(self) -> Self:
-        return self.__class__(0, 0)
+    # TODO: Fix annotations for `@class_constant`
 
-    @property
-    def ONE(self) -> Self:
-        return self.__class__(1, 1)
-    
-    @property
-    def INF(self) -> Self:
-        return self.__class__(INF, INF)
-    
-    @property
-    def LEFT(self) -> Self:
-        return self.__class__(-1, 0)
-    
-    @property
-    def RIGHT(self) -> Self:
-        return self.__class__(1, 0)
-    
-    @property
-    def UP(self) -> Self:
-        return self.__class__(0, 1)
+    @class_constant
+    def ZERO(cls: type[Self]) -> Self:  # type: ignore
+        return cls(0, 0)
 
-    @property
-    def DOWN(self) -> Self:
-        return self.__class__(0, -1)
+    @class_constant
+    def ONE(cls: type[Self]) -> Self:  # type: ignore
+        return cls(1, 1)
+    
+    @class_constant
+    def INF(cls: type[Self]) -> Self:  # type: ignore
+        return cls(INF, INF)
+    
+    @class_constant
+    def LEFT(cls: type[Self]) -> Self:  # type: ignore
+        return cls(-1, 0)
+    
+    @class_constant
+    def RIGHT(cls: type[Self]) -> Self:  # type: ignore
+        return cls(1, 0)
+    
+    @class_constant
+    def UP(cls: type[Self]) -> Self:  # type: ignore
+        return cls(0, 1)
+
+    @class_constant
+    def DOWN(cls: type[Self]) -> Self:  # type: ignore
+        return cls(0, -1)
 
     def __init__(self, x: float = 0, y: float = 0, /) -> None:
         """Initializes the Vec2
