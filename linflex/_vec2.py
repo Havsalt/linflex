@@ -90,11 +90,17 @@ class Vec2:
         """
         return bool(self.x or self.y)
 
-    def __abs__(self) -> Vec2:
-        return Vec2(abs(self.x), abs(self.y))
+    def __abs__(self) -> Self:
+        return self.__class__(
+            abs(self.x),
+            abs(self.y),
+        )
 
-    def __round__(self, ndigits: int = 0) -> Vec2:
-        return Vec2(round(self.x, ndigits), round(self.y, ndigits))
+    def __round__(self, ndigits: int = 0) -> Self:
+        return self.__class__(
+            round(self.x, ndigits),
+            round(self.y, ndigits),
+        )
 
     def __neg__(self) -> Vec2:
         return Vec2(-self.x, -self.y)
@@ -117,8 +123,14 @@ class Vec2:
 
     def __mul__(self, other: Vec2 | int | float) -> Vec2:
         if isinstance(other, Vec2):
-            return Vec2(self.x * other.x, self.y * other.y)
-        return Vec2(self.x * other, self.y * other)
+            return Vec2(
+                self.x * other.x,
+                self.y * other.y,
+            )
+        return Vec2(
+            self.x * other,
+            self.y * other,
+        )
 
     def __imul__(self, other: Vec2 | int | float) -> Vec2:
         if isinstance(other, Vec2):
@@ -131,8 +143,14 @@ class Vec2:
 
     def __floordiv__(self, other: Vec2 | int | float) -> Vec2:
         if isinstance(other, Vec2):
-            return Vec2(self.x // other.x, self.y // other.y)
-        return Vec2(self.x // other, self.y // other)
+            return Vec2(
+                self.x // other.x,
+                self.y // other.y,
+            )
+        return Vec2(
+            self.x // other,
+            self.y // other,
+        )
 
     def __ifloordiv__(self, other: Vec2 | int | float) -> Vec2:
         if isinstance(other, Vec2):
@@ -145,8 +163,14 @@ class Vec2:
 
     def __truediv__(self, other: Vec2 | int | float) -> Vec2:
         if isinstance(other, Vec2):
-            return Vec2(self.x / other.x, self.y / other.y)
-        return Vec2(self.x / other, self.y / other)
+            return Vec2(
+                self.x / other.x,
+                self.y / other.y,
+            )
+        return Vec2(
+            self.x / other,
+            self.y / other,
+        )
 
     def __itruediv__(self, other: Vec2 | int | float) -> Vec2:
         if isinstance(other, Vec2):
@@ -159,8 +183,14 @@ class Vec2:
 
     def __mod__(self, other: Vec2 | int | float) -> Vec2:
         if isinstance(other, Vec2):
-            return Vec2(self.x % other.x, self.y % other.y)
-        return Vec2(self.x % other, self.y % other)
+            return Vec2(
+                self.x % other.x,
+                self.y % other.y,
+            )
+        return Vec2(
+            self.x % other,
+            self.y % other,
+        )
 
     def __imod__(self, other: Vec2 | int | float) -> Vec2:
         if isinstance(other, Vec2):
