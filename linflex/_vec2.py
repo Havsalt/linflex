@@ -61,7 +61,7 @@ class Vec2:
     def __reduce__(self) -> tuple[type[Self], tuple[float, float]]:
         return (self.__class__, (self.x, self.y))
 
-    def __len__(self) -> int:
+    def __len__(self) -> Literal[2]:
         return 2
 
     def __iter__(self) -> Iterator[float]:
@@ -219,11 +219,19 @@ class Vec2:
     def __le__(self, other: Vec2) -> bool:
         return (self.x <= other.x) and (self.y <= other.y)
 
-    def __copy__(self) -> Vec2:
-        return __class__(self.x, self.y)
+    def __copy__(self) -> Self:
+        return self.__class__(self.x, self.y)
 
-    def __deepcopy__(self, _memo) -> Vec2:
-        return __class__(self.x, self.y)
+    def __deepcopy__(self, _memo) -> Self:
+        return self.__class__(self.x, self.y)
+
+    def copy(self) -> Self:
+        """Returns a copied Vec2
+
+        Returns:
+            Vec2: a new copy
+        """
+        return self.__copy__()
 
     def to_tuple(self) -> tuple[float, float]:
         """Converts the vector to a tuple representation
@@ -232,14 +240,6 @@ class Vec2:
             tuple[float, float]: x and y as tuple
         """
         return (self.x, self.y)
-
-    def copy(self) -> Vec2:
-        """Returns a copied Vec2
-
-        Returns:
-            Vec2: a new copy
-        """
-        return __class__(self.x, self.y)
 
     def length(self) -> float:
         """Returns the length of the vector
