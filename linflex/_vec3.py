@@ -21,38 +21,47 @@ class Vec3:
 
     @class_constant
     def ZERO(cls: type[Self]) -> Self:  # type: ignore
+        """Zero vector, a vector with all components set to `0`"""
         return cls(0, 0, 0)
 
     @class_constant
     def ONE(cls: type[Self]) -> Self:  # type: ignore
+        """One vector, a vector with all components set to `1`"""
         return cls(1, 1, 1)
 
     @class_constant
     def INF(cls: type[Self]) -> Self:  # type: ignore
+        """Infinity vector, a vector with all components set to `math.inf`"""
         return cls(INF, INF, INF)
 
     @class_constant
     def LEFT(cls: type[Self]) -> Self:  # type: ignore
+        """Left unit vector. Represents the local direction of left, and the global direction of west"""
         return cls(-1, 0, 0)
 
     @class_constant
     def RIGHT(cls: type[Self]) -> Self:  # type: ignore
+        """Right unit vector. Represents the local direction of right, and the global direction of east"""
         return cls(1, 0, 0)
 
     @class_constant
     def UP(cls: type[Self]) -> Self:  # type: ignore
+        """Up unit vector"""
         return cls(0, 1, 0)
 
     @class_constant
     def DOWN(cls: type[Self]) -> Self:  # type: ignore
+        """Down unit vector"""
         return cls(0, -1, 0)
 
     @class_constant
     def FORWARD(cls: type[Self]) -> Self:  # type: ignore
+        """Forward unit vector. Represents the local direction of forward, and the global direction of north"""
         return cls(0, 0, 1)
 
     @class_constant
-    def BACKWARD(cls: type[Self]) -> Self:  # type: ignore
+    def BACK(cls: type[Self]) -> Self:  # type: ignore
+        """Back unit vector. Represents the local direction of back, and the global direction of south"""
         return cls(0, 0, -1)
 
     def __init__(self, x: float = 0, y: float = 0, z: float = 0, /) -> None:
@@ -63,7 +72,7 @@ class Vec3:
     def __reduce__(self) -> tuple[type[Self], tuple[float, float]]:
         return (self.__class__, (self.x, self.y))
 
-    def __len__(self) -> int:
+    def __len__(self) -> Literal[3]:
         return 3
 
     def __iter__(self) -> Iterator[float]:
