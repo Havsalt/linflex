@@ -46,12 +46,12 @@ class Vec2:
 
     @class_constant
     def UP(cls: type[Self]) -> Self:  # type: ignore
-        # TODO: Add docstring
+        """Up unit vector. Y is down in 2D, so this vector points -Y"""
         return cls(0, -1)
 
     @class_constant
     def DOWN(cls: type[Self]) -> Self:  # type: ignore
-        # TODO: Add docstring
+        """Down unit vector. Y is down in 2D, so this vector points +Y"""
         return cls(0, 1)
 
     def __init__(self, x: float = 0, y: float = 0, /) -> None:
