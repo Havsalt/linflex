@@ -21,7 +21,7 @@ __all__ = (
     "clamp",
     "Vec2",
     "Vec2i",
-    "Vec3"
+    "Vec3",
 )
 
 from ._numerical_tools import lerp, sign, clamp
