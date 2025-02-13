@@ -3,9 +3,10 @@ from math import isclose, pi
 from linflex import Vec2
 
 
-def test_constants():
+def test_stants():
     assert Vec2.ZERO == Vec2(0, 0)
     assert Vec2.ONE == Vec2(1, 1)
+    assert Vec2.INF == Vec2(float("inf"), float("inf"))
     assert Vec2.LEFT == Vec2(-1, 0)
     assert Vec2.RIGHT == Vec2(1, 0)
     assert Vec2.UP == Vec2(0, -1)
@@ -89,6 +90,7 @@ def test_clamped():
 def test_abs():
     v = Vec2(1, -2)
     assert abs(v) == Vec2(1, 2)
+
 
 def test_round():
     v = Vec2(0.6, 0.29)
