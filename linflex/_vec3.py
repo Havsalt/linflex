@@ -256,14 +256,14 @@ class Vec3:
     def __le__(self, other: Vec3) -> bool:
         return (self.x <= other.x) and (self.y <= other.y) and (self.z <= other.z)
 
-    def __copy__(self) -> Vec3:
-        return __class__(self.x, self.y, self.z)
+    def __copy__(self) -> Self:
+        return self.__class__(self.x, self.y, self.z)
 
-    def __deepcopy__(self, _memo) -> Vec3:
-        return __class__(self.x, self.y, self.z)
+    def __deepcopy__(self, _memo) -> Self:
+        return self.__class__(self.x, self.y, self.z)
 
-    def copy(self) -> Vec3:
-        return Vec3(self.x, self.y, self.z)
+    def copy(self) -> Self:
+        return self.__copy__()
 
     def length(self) -> float:
         return sqrt(self.x * self.x + self.y * self.y + self.z * self.z)
