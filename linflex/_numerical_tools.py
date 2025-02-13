@@ -1,7 +1,12 @@
-from __future__ import annotations as _annotations
+from __future__ import annotations
 
 
-def lerp(start: int | float, end: int | float, weight: float, /) -> float:
+def lerp(
+    start: int | float,
+    end: int | float,
+    weight: float,
+    /,
+) -> float:
     """Lerps between `start` and `end` with `weight` ranging from 0 to 1
 
     Args:
@@ -24,10 +29,19 @@ def sign(number: int | float, /) -> int:
     Returns:
         int: sign
     """
-    return 0 if number == 0 else (1 if number > 0 else -1)
+    if number > 0:
+        return 1
+    if number < 0:
+        return -1
+    return 0
 
 
-def clamp(number: int | float, smallest: int | float, largest: int | float, /) -> int | float:
+def clamp(
+    number: int | float,
+    smallest: int | float,
+    largest: int | float,
+    /,
+) -> int | float:
     """Returns the number clamped between smallest and largest (inclusive)
 
     Args:
