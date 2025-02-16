@@ -3,7 +3,7 @@ from math import isclose, pi
 from linflex import Vec2
 
 
-def test_stants():
+def test_constants():
     assert Vec2.ZERO == Vec2(0, 0)
     assert Vec2.ONE == Vec2(1, 1)
     assert Vec2.INF == Vec2(float("inf"), float("inf"))
