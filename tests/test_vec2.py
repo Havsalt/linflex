@@ -3,6 +3,12 @@ from math import isclose, pi
 from linflex import Vec2
 
 
+def test_initialization():
+    v = Vec2(3, 4)
+    assert v.x == 3
+    assert v.y == 4
+
+
 def test_constants():
     assert Vec2.ZERO == Vec2(0, 0)
     assert Vec2.ONE == Vec2(1, 1)
@@ -11,12 +17,14 @@ def test_constants():
     assert Vec2.RIGHT == Vec2(1, 0)
     assert Vec2.UP == Vec2(0, -1)
     assert Vec2.DOWN == Vec2(0, 1)
-
-
-def test_initialization():
-    v = Vec2(3, 4)
-    assert v.x == 3
-    assert v.y == 4
+    # Constants should generate a new unique instance each time to avoid mutation
+    assert Vec2.ZERO is not Vec2.ZERO
+    assert Vec2.ONE is not Vec2.ONE
+    assert Vec2.INF is not Vec2.INF
+    assert Vec2.LEFT is not Vec2.LEFT
+    assert Vec2.RIGHT is not Vec2.RIGHT
+    assert Vec2.UP is not Vec2.UP
+    assert Vec2.DOWN is not Vec2.DOWN
 
 
 def test_addition():

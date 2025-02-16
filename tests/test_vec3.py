@@ -20,6 +20,16 @@ def test_constants():
     assert Vec3.DOWN == Vec3(0, -1, 0)
     assert Vec3.FORWARD == Vec3(0, 0, 1)
     assert Vec3.BACK == Vec3(0, 0, -1)
+    # Constants should generate a new unique instance each time to avoid mutation
+    assert Vec3.ZERO is not Vec3.ZERO
+    assert Vec3.ONE is not Vec3.ONE
+    assert Vec3.INF is not Vec3.INF
+    assert Vec3.LEFT is not Vec3.LEFT
+    assert Vec3.RIGHT is not Vec3.RIGHT
+    assert Vec3.UP is not Vec3.UP
+    assert Vec3.DOWN is not Vec3.DOWN
+    assert Vec3.FORWARD is not Vec3.FORWARD
+    assert Vec3.BACK is not Vec3.BACK
 
 
 def test_default():
