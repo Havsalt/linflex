@@ -69,7 +69,7 @@ class Vec2:
         y = sin(angle)
         return cls(x, y)
 
-    def __init__(self, x: float = 0, y: float = 0, /) -> None:
+    def __init__(self, x: float, y: float, /) -> None:
         self.x = x
         self.y = y
 

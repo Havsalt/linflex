@@ -46,7 +46,7 @@ class Vec2i(Vec2):
 
         return cls(x_snapped, y_snapped)
 
-    def __init__(self, x: int = 0, y: int = 0, /) -> None:
+    def __init__(self, x: int, y: int, /) -> None:
         self.x = x
         self.y = y
 
