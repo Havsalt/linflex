@@ -292,6 +292,9 @@ class Vec3:
     def length(self) -> float:
         return sqrt(self.x * self.x + self.y * self.y + self.z * self.z)
 
+    def length_squared(self) -> float:
+        return self.x * self.x + self.y * self.y + self.z * self.z
+
     def normalized(self) -> Vec3:
         length = self.length()
         if length == 0:
@@ -325,6 +328,9 @@ class Vec3:
 
     def distance_to(self, target: Vec3, /) -> float:
         return (target - self).length()
+
+    def distance_squared_to(self, target: Vec3, /) -> float:
+        return (target - self).length_squared()
 
     def direction_to(self, target: Vec3, /) -> Vec3:
         return (target - self).normalized()
