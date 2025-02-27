@@ -11,7 +11,7 @@ pip install linflex
 ```
 
 ```bash
-rye install linflex
+rye add linflex
 ```
 
 ## Getting started
