@@ -7,7 +7,6 @@ from typing_extensions import Self
 
 from ._numerical_tools import lerp, sign, clamp
 from ._class_constant import class_constant
-from ._annotations import Radians
 
 
 class Vec3:
