@@ -7,6 +7,7 @@ from typing_extensions import Self
 
 from ._numerical_tools import lerp, sign, clamp
 from ._class_constant import class_constant
+from ._annotations import Radians
 
 
 class Vec2:
@@ -54,6 +55,20 @@ class Vec2:
         """Down unit vector. Y is down in 2D, so this vector points +Y"""
         return cls(0, 1)
 
+    @classmethod
+    def from_angle(cls, angle: Radians, /) -> Self:
+        """Creates a direction vector of length 1 from given angle
+
+        Args:
+            angle (Radians): angle in radians
+
+        Returns:
+            Self: direction vector of length 1
+        """
+        x = cos(angle)
+        y = sin(angle)
+        return cls(x, y)
+
     def __init__(self, x: float = 0, y: float = 0, /) -> None:
         self.x = x
         self.y = y
@@ -72,7 +87,7 @@ class Vec2:
             return self.x
         elif item == 1:
             return self.y
-        raise ValueError(f"item '{item}' does not correspond to x or y")
+        raise ValueError(f"item '{item}' does not correspond to x or y axis")
 
     def __str__(self) -> str:
         """String representation
