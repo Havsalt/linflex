@@ -287,6 +287,17 @@ class Vec2:
         """
         return (other - self).length()
 
+    def distance_squared_to(self, other: Vec2, /) -> float:
+        """Returns the relative distance to the other point, squared
+
+        Args:
+            other (Vec2): other point
+
+        Returns:
+            float: distance squared
+        """
+        return (other - self).length_squared()
+
     def normalized(self) -> Vec2:
         """Returns a vector with length of 1, still with same direction
 
