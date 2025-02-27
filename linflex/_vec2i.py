@@ -1,6 +1,12 @@
 from __future__ import annotations
 
+from math import cos, sin
+
+from typing_extensions import Self
+
 from ._vec2 import Vec2
+from ._numerical_tools import sign
+from ._annotations import Radians
 
 
 class Vec2i(Vec2):
@@ -13,13 +19,26 @@ class Vec2i(Vec2):
 
     __slots__ = ("x", "y")
 
-    def __init__(self, x: int = 0, y: int = 0, /) -> None:
-        """Initializes the Vec2i
+    @classmethod
+    def from_angle(cls, angle: Radians, /) -> Self:
+        """Creates a snapped direction vector of length 1 from given angle
+
+        Snapping is done by taking the `sign` of each `component`.
+        Formulas used: `x = sign(cos(angle))` and `y = sign(sin(angle))`
 
         Args:
-            x (int, optional): x component. Defaults to 0.
-            y (int, optional): y component. Defaults to 0.
+            angle (Radians): angle in radians
+
+        Returns:
+            Self: snapped direction vector of length 1
         """
+        x = cos(angle)
+        y = sin(angle)
+        x_snapped = sign(x)
+        y_snapped = sign(y)
+        return cls(x_snapped, y_snapped)
+
+    def __init__(self, x: int = 0, y: int = 0, /) -> None:
         self.x = x
         self.y = y
 
