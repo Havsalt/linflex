@@ -124,7 +124,7 @@ class Vec3:
         return bool(self.x or self.y or self.z)
 
     def __abs__(self) -> Self:
-        return self.__class__(abs(self.x), abs(self.y))
+        return self.__class__(abs(self.x), abs(self.y), abs(self.z))
 
     def __round__(self, ndigits: int = 0) -> Self:
         return self.__class__(
