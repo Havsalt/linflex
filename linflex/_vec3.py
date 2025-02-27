@@ -7,6 +7,7 @@ from typing_extensions import Self
 
 from ._numerical_tools import lerp, sign, clamp
 from ._class_constant import class_constant
+from ._annotations import Radians
 
 
 class Vec3:
@@ -64,6 +65,29 @@ class Vec3:
         """Back unit vector. Represents the local direction of back, and the global direction of south"""
         return cls(0, 0, -1)
 
+    @classmethod
+    def from_angles(cls, angles: Vec3, /) -> Self:
+        """Creates a direction vector of length 1 from given angle
+
+        Args:
+            angles (Vec3): vector representing rotation around each axis (x, y, z)
+
+        Returns:
+            Self: direction vector of length 1
+        """
+        x_cos = cos(angles.x)
+        y_cos = cos(angles.y)
+        z_cos = cos(angles.z)
+
+        x_sin = sin(angles.x)
+        y_sin = sin(angles.y)
+        z_sin = sin(angles.z)
+
+        x = y_cos * z_cos
+        y = x_sin * y_sin * z_cos + x_cos * z_sin
+        z = x_cos * y_sin * z_cos - x_sin * z_sin
+        return cls(x, y, z)
+
     def __init__(self, x: float = 0, y: float = 0, z: float = 0, /) -> None:
         self.x = x
         self.y = y
@@ -78,14 +102,14 @@ class Vec3:
     def __iter__(self) -> Iterator[float]:
         return iter((self.x, self.y, self.z))
 
-    def __getitem__(self, item: Literal[0, 0, 0]) -> float:
+    def __getitem__(self, item: Literal[0, 1, 2]) -> float:
         if item == 0:
             return self.x
         elif item == 1:
             return self.y
         elif item == 2:
             return self.z
-        raise ValueError(f"item {item} does not correspond to x or y or z")
+        raise ValueError(f"item '{item}' does not correspond to x or y or z axis")
 
     def __str__(self) -> str:
         return f"{self.__class__.__name__}({self.x}, {self.y}, {self.z})"
