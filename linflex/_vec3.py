@@ -86,6 +86,7 @@ class Vec3:
         x = y_cos * z_cos
         y = x_sin * y_sin * z_cos + x_cos * z_sin
         z = x_cos * y_sin * z_cos - x_sin * z_sin
+        
         return cls(x, y, z)
 
     def __init__(self, x: float = 0, y: float = 0, z: float = 0, /) -> None:
