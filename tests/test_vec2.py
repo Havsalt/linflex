@@ -1,4 +1,4 @@
-from math import isclose, pi
+from math import isclose, pi as PI
 
 from linflex import Vec2
 
@@ -25,6 +25,15 @@ def test_constants():
     assert Vec2.RIGHT is not Vec2.RIGHT
     assert Vec2.UP is not Vec2.UP
     assert Vec2.DOWN is not Vec2.DOWN
+
+
+def test_from_angle():
+    v1 = Vec2.from_angle(PI)
+    assert isclose(v1.length(), 1)
+    assert isclose(v1.x, -1) and isclose(v1.y, 0, abs_tol=1e-9)
+    v2 = Vec2.from_angle(PI / 2)
+    assert isclose(v2.length(), 1)
+    assert isclose(v2.x, 0, abs_tol=1e-9) and isclose(v2.y, 1)
 
 
 def test_addition():
@@ -75,7 +84,7 @@ def test_cross_product():
 
 def test_angle():
     v = Vec2(1, 1)
-    assert isclose(v.angle(), pi / 4)
+    assert isclose(v.angle(), PI / 4)
 
 
 def test_lerp():
@@ -85,7 +94,7 @@ def test_lerp():
 
 
 def test_rotation():
-    v = Vec2(1, 0).rotated(pi / 2)
+    v = Vec2(1, 0).rotated(PI / 2)
     assert isclose(v.x, 0, abs_tol=1e-9)
     assert isclose(v.y, -1, abs_tol=1e-9)
 
