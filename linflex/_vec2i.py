@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from math import cos, sin
+from math import isclose, cos, sin
 
 from typing_extensions import Self
 
@@ -33,9 +33,17 @@ class Vec2i(Vec2):
             Self: snapped direction vector of length 1
         """
         x = cos(angle)
+        if isclose(x, 0, abs_tol=1e-9):
+            x_snapped = 0
+        else:
+            x_snapped = sign(x)
+
         y = sin(angle)
-        x_snapped = sign(x)
-        y_snapped = sign(y)
+        if isclose(y, 0, abs_tol=1e-9):
+            y_snapped = 0
+        else:
+            y_snapped = sign(y)
+
         return cls(x_snapped, y_snapped)
 
     def __init__(self, x: int = 0, y: int = 0, /) -> None:
