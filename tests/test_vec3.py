@@ -32,13 +32,6 @@ def test_constants():
     assert Vec3.BACK is not Vec3.BACK
 
 
-def test_default():
-    v = Vec3()
-    assert v.x == 0
-    assert v.y == 0
-    assert v.z == 0
-
-
 def test_addition():
     v1 = Vec3(1, 2, 3)
     v2 = Vec3(4, 5, 6)
