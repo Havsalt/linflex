@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from typing import Literal
+
 
 def lerp(
     start: int | float,
@@ -20,14 +22,14 @@ def lerp(
     return (1.0 - weight) * start + (weight * end)
 
 
-def sign(number: int | float, /) -> int:
+def sign(number: int | float, /) -> Literal[-1, 0, 1]:
     """Returns the sign of the number. The number 0 will return 0
 
     Args:
         number (int | float): number to get the sign of
 
     Returns:
-        int: sign
+        Literal[-1, 0, 1]: sign
     """
     if number > 0:
         return 1
