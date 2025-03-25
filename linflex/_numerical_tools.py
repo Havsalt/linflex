@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from typing import Literal
 
+from ._annotations import Number
+
 
 def lerp(
     start: int | float,
@@ -39,19 +41,19 @@ def sign(number: int | float, /) -> Literal[-1, 0, 1]:
 
 
 def clamp(
-    number: int | float,
-    smallest: int | float,
-    largest: int | float,
+    number: Number,
+    smallest: Number,
+    largest: Number,
     /,
-) -> int | float:
+) -> Number:
     """Returns the number clamped between smallest and largest (inclusive)
 
     Args:
-        number (int | float): number to clamp
-        smallest (int | float): lower bound
-        largest (int | float): upper bound
+        number (Number): number to clamp
+        smallest (Number): lower bound
+        largest (Number): upper bound
 
     Returns:
-        int | float: clamped number
+        Number: clamped number
     """
     return max(smallest, min(largest, number))
