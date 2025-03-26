@@ -6,10 +6,8 @@ def test_clamp():
     assert clamp(7, 2, 5) == 5
     assert clamp(7, 4, 6) == 6
     assert clamp(7, 9, 10) == 9
-    # NOTE: Because small numbers are cached in Python (at least CPython),
-    #       this identity check should be valid
     # NOTE: This one should *also* give a lint error if `float` and `int` are mixed
-    assert clamp(7.0, 9, 10) is 9
+    assert isinstance(clamp(7, 9.0, 10), float)
 
 
 def test_sign():
