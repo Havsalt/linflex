@@ -42,6 +42,7 @@ assert c == Vec2(1, 2)
   - `lerp`
   - `sign`
   - `clamp`
+  - `move_toward`
 - Datastructures
   - `Vec2`
   - `Vec2i`

@@ -5,9 +5,9 @@ from typing import Iterator, Literal
 
 from typing_extensions import Self
 
-from ._numerical_tools import lerp, sign, clamp
+from ._numerical_tools import lerp, sign, clamp, move_toward
 from ._class_constant import class_constant
-from ._annotations import Radians
+from ._annotations import Radians, Number
 
 
 class Vec2:
@@ -400,6 +400,21 @@ class Vec2:
         return Vec2(
             clamp(self.x, smallest.x, largest.x),
             clamp(self.y, smallest.y, largest.y),
+        )
+
+    def move_toward(self, stop: Vec2, /, change: int | float) -> Vec2:
+        """Move toward a vector, from a vector, with given change
+
+        Args:
+            stop (Vec2): target vector
+            change (int | float): max distance to move
+
+        Returns:
+            Vec2: new vector moved
+        """
+        return Vec2(
+            move_toward(self.x, stop.x, change),
+            move_toward(self.y, stop.y, change),
         )
 
     def rotated(self, angle: float, /) -> Vec2:

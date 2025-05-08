@@ -5,7 +5,7 @@ from typing import Iterator, Literal
 
 from typing_extensions import Self
 
-from ._numerical_tools import lerp, sign, clamp
+from ._numerical_tools import lerp, sign, clamp, move_toward
 from ._class_constant import class_constant
 
 
@@ -319,11 +319,18 @@ class Vec3:
             sign(self.z),
         )
 
-    def clamped(self, smallest: Vec3, /, largest: Vec3) -> Vec3:
+    def clamped(self, smallest: Vec3, largest: Vec3, /) -> Vec3:
         return Vec3(
             clamp(self.x, smallest.x, largest.x),
             clamp(self.y, smallest.y, largest.y),
             clamp(self.z, smallest.z, largest.z),
+        )
+    
+    def move_toward(self, stop: Vec3, /, change: int | float) -> Vec3:
+        return Vec3(
+            move_toward(self.x, stop.x, change),
+            move_toward(self.y, stop.y, change),
+            move_toward(self.z, stop.z, change),
         )
 
     def distance_to(self, target: Vec3, /) -> float:
