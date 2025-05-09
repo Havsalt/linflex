@@ -142,17 +142,3 @@ class Vec2i(Vec2):
         self.x %= other.x
         self.y %= other.y
         return self
-
-    def __copy__(self) -> Vec2i:
-        return __class__(self.x, self.y)
-
-    def __deepcopy__(self) -> Vec2i:
-        return __class__(self.x, self.y)
-
-    def copy(self) -> Vec2i:
-        """Return a copied Vec2i
-
-        Returns:
-            Vec2i: A new copy
-        """
-        return __class__(self.x, self.y)

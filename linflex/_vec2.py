@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from math import sqrt, floor, ceil, cos, sin, atan2, inf as INF
-from typing import Iterator, Literal
+from typing import Iterator, Literal, Any
 
 from typing_extensions import Self
 
@@ -279,14 +279,14 @@ class Vec2:
     def __copy__(self) -> Self:
         return self.__class__(self.x, self.y)
 
-    def __deepcopy__(self, _memo) -> Self:
+    def __deepcopy__(self, _memo: dict[int, Any]) -> Self:
         return self.__class__(self.x, self.y)
 
     def copy(self) -> Self:
-        """Return a copied Vec2
+        """Return a vector copy
 
         Returns:
-            Vec2: A new copy
+            Self: A new copy
         """
         return self.__copy__()
 
