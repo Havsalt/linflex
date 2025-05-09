@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from math import sqrt, cos, sin, atan2, inf as INF
+from math import sqrt, floor, ceil, cos, sin, atan2, inf as INF
 from typing import Iterator, Literal
 
 from typing_extensions import Self
@@ -37,7 +37,7 @@ class Vec3:
     @class_constant
     def LEFT(cls: type[Self]) -> Self:  # type: ignore
         """Left unit vector
-        
+
         Represents both `local direction left`, and the `global direction west`
         """
         return cls(-1, 0, 0)
@@ -45,7 +45,7 @@ class Vec3:
     @class_constant
     def RIGHT(cls: type[Self]) -> Self:  # type: ignore
         """Right unit vector
-        
+
         Represents both `local direction right`, and `global direction east`
         """
         return cls(1, 0, 0)
@@ -53,7 +53,7 @@ class Vec3:
     @class_constant
     def UP(cls: type[Self]) -> Self:  # type: ignore
         """Up unit vector
-        
+
         Represents `up direction`
         """
         return cls(0, 1, 0)
@@ -61,7 +61,7 @@ class Vec3:
     @class_constant
     def DOWN(cls: type[Self]) -> Self:  # type: ignore
         """Down unit vector
-        
+
         Represents `down direction`
         """
         return cls(0, -1, 0)
@@ -69,7 +69,7 @@ class Vec3:
     @class_constant
     def FORWARD(cls: type[Self]) -> Self:  # type: ignore
         """Forward unit vector
-        
+
         Represents both `local direction forward`, and `global direction north`
         """
         return cls(0, 0, 1)
@@ -77,7 +77,7 @@ class Vec3:
     @class_constant
     def BACK(cls: type[Self]) -> Self:  # type: ignore
         """Back/backward unit vector
-        
+
         Represents `local direction back/backwards`, and `global direction south`
         """
         return cls(0, 0, -1)
@@ -155,6 +155,20 @@ class Vec3:
             round(self.x, ndigits),
             round(self.y, ndigits),
             round(self.z, ndigits),
+        )
+
+    def __floor__(self) -> Self:
+        return self.__class__(
+            floor(self.x),
+            floor(self.y),
+            floor(self.z),
+        )
+
+    def __ceil__(self) -> Self:
+        return self.__class__(
+            ceil(self.x),
+            ceil(self.y),
+            ceil(self.z),
         )
 
     def __add__(self, other: Vec3) -> Vec3:

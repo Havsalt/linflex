@@ -1,4 +1,4 @@
-from math import isclose, pi
+from math import isclose, floor, ceil, pi
 
 from linflex import Vec3
 
@@ -146,3 +146,13 @@ def test_inequality():
     v1 = Vec3(1, 2, 3)
     v2 = Vec3(4, 5, 6)
     assert v1 != v2
+
+
+def test_floor():
+    v = Vec3(2.2, -2.2, 1.9)
+    assert floor(v) == Vec3(2, -3, 1)
+
+
+def test_ceil():
+    v = Vec3(2.2, -2.2, 1.9)
+    assert ceil(v) == Vec3(3, -2, 2)

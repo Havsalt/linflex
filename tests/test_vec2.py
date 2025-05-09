@@ -1,4 +1,4 @@
-from math import isclose, pi as PI
+from math import isclose, floor, ceil, pi as PI
 
 from linflex import Vec2
 
@@ -113,6 +113,16 @@ def test_clamped():
 def test_abs():
     v = Vec2(1, -2)
     assert abs(v) == Vec2(1, 2)
+
+
+def test_floor():
+    v = Vec2(2.2, -2.2)
+    assert floor(v) == Vec2(2, -3)
+
+
+def test_ceil():
+    v = Vec2(2.2, -2.2)
+    assert ceil(v) == Vec2(3, -2)
 
 
 def test_round():

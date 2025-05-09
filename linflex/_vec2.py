@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from math import sqrt, cos, sin, atan2, inf as INF
+from math import sqrt, floor, ceil, cos, sin, atan2, inf as INF
 from typing import Iterator, Literal
 
 from typing_extensions import Self
@@ -38,7 +38,7 @@ class Vec2:
     @class_constant
     def LEFT(cls: type[Self]) -> Self:  # type: ignore
         """Left unit vector
-        
+
         Represents the `left direction`
         """
         return cls(-1, 0)
@@ -46,7 +46,7 @@ class Vec2:
     @class_constant
     def RIGHT(cls: type[Self]) -> Self:  # type: ignore
         """Right unit vector
-        
+
         Represents the `right direction`
         """
         return cls(1, 0)
@@ -54,7 +54,7 @@ class Vec2:
     @class_constant
     def UP(cls: type[Self]) -> Self:  # type: ignore
         """Up unit vector
-        
+
         Represents the `up direction`
 
         NOTE: Y is down in 2D, so this vector points -Y
@@ -64,7 +64,7 @@ class Vec2:
     @class_constant
     def DOWN(cls: type[Self]) -> Self:  # type: ignore
         """Down unit vector
-        
+
         Represents the `down direction`
 
         NOTE: Y is down in 2D, so this vector points +Y
@@ -137,6 +137,18 @@ class Vec2:
         return self.__class__(
             round(self.x, ndigits),
             round(self.y, ndigits),
+        )
+
+    def __floor__(self) -> Self:
+        return self.__class__(
+            floor(self.x),
+            floor(self.y),
+        )
+
+    def __ceil__(self) -> Self:
+        return self.__class__(
+            ceil(self.x),
+            ceil(self.y),
         )
 
     def __neg__(self) -> Vec2:
