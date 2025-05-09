@@ -37,7 +37,7 @@ assert x == 3 and y == 4
 
 ## Rational
 
-`linflex` was created to fill the need for a common `Vec2` class accross my projects and packages. It is lightweight, as it only depends on `typing-extensions`. Aside from linear algebra, I also needed helper functions like `lerp`, `sign` and `clamp`, which was put into good use by `<Vec2>.lerp`, and alike.
+`linflex` was created to fill the need for a common `Vec2` class accross my projects and packages. It is lightweight, as it only depends on `typing-extensions`. Aside from linear algebra, I also needed helper functions like `lerp`, `sign` and `clamp`, which was put into good use by `<Vec2>.lerp`, and alike. Naming and functionality is mainly inspired by the `Godot Game Engine`.
 
 ## Includes
 
