@@ -13,3 +13,6 @@ def test_example():
     c = Vec2(1, 1)
     c += Vec2(0, 1)
     assert c == Vec2(1, 2)
+
+    x, y = Vec2(3, 4)  # Supports tuple destructuring
+    assert x == 3 and y == 4
