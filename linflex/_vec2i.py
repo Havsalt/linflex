@@ -125,8 +125,10 @@ class Vec2i(Vec2):
         )
 
     def __itruediv__(self, other: Vec2i) -> Vec2i:
-        self.x /= other.x
-        self.y /= other.y
+        # Using floor division since `other` is marked as `Vec2i`,
+        # which means unexpected behaviour comes from not passing the correct type
+        self.x //= other.x
+        self.y //= other.y
         return self
 
     def __mod__(self, other: Vec2i | Vec2 | int | float) -> Vec2i | Vec2:
