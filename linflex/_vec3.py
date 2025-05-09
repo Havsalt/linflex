@@ -143,7 +143,7 @@ class Vec3:
         """Returns whether x or y is not zero
 
         Returns:
-            bool: truthiness
+            bool: Truthiness
         """
         return bool(self.x or self.y or self.z)
 
