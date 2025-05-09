@@ -32,6 +32,15 @@ def test_constants():
     assert Vec3.BACK is not Vec3.BACK
 
 
+def test_to_tuple():
+    x, y, z = Vec3(2, 3, 4)
+    assert x == 2 and y == 3 and z == 4
+    a, b, c = Vec3(-10, 20, -30)
+    assert a != 7 and b != 8 and c != 9
+    assert (4, 5, 6) == tuple(Vec3(4, 5, 6))
+    assert (4, 5) != tuple(Vec3(4, 5, 6))
+
+
 def test_addition():
     v1 = Vec3(1, 2, 3)
     v2 = Vec3(4, 5, 6)

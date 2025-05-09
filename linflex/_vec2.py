@@ -248,14 +248,6 @@ class Vec2:
         """
         return self.__copy__()
 
-    def to_tuple(self) -> tuple[float, float]:
-        """Converts the vector to a tuple representation
-
-        Returns:
-            tuple[float, float]: x and y as tuple
-        """
-        return (self.x, self.y)
-
     def length(self) -> float:
         """Returns the length of the vector
 

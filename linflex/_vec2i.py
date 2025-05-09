@@ -147,14 +147,6 @@ class Vec2i(Vec2):
     def __deepcopy__(self) -> Vec2i:
         return __class__(self.x, self.y)
 
-    def to_tuple(self) -> tuple[int, int]:
-        """Converts the vector to a tuple representation
-
-        Returns:
-            tuple[int, int]: x and y as tuple
-        """
-        return (self.x, self.y)
-
     def copy(self) -> Vec2i:
         """Returns a copied Vec2i
 

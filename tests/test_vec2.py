@@ -27,6 +27,12 @@ def test_constants():
     assert Vec2.DOWN is not Vec2.DOWN
 
 
+def test_to_tuple():
+    x, y = Vec2(2, 3)
+    assert x == 2 and y == 3
+    assert (4, 5) == tuple(Vec2(4, 5))
+
+
 def test_from_angle():
     v1 = Vec2.from_angle(PI)
     assert isclose(v1.length(), 1)

@@ -325,7 +325,7 @@ class Vec3:
             clamp(self.y, smallest.y, largest.y),
             clamp(self.z, smallest.z, largest.z),
         )
-    
+
     def move_toward(self, stop: Vec3, /, change: int | float) -> Vec3:
         return Vec3(
             move_toward(self.x, stop.x, change),
@@ -359,9 +359,6 @@ class Vec3:
 
     def angles_to(self, target: Vec3, /) -> Vec3:
         return (target - self).angles()
-
-    def to_tuple(self) -> tuple[float, float, float]:
-        return (self.x, self.y, self.z)
 
     def rotated_around_x(self, angle: float, /) -> Vec3:
         new_y = self.y * cos(angle) - self.z * sin(angle)
