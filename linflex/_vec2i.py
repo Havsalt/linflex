@@ -21,16 +21,16 @@ class Vec2i(Vec2):
 
     @classmethod
     def from_angle(cls, angle: Radians, /) -> Self:
-        """Creates a snapped direction vector of length 1 from given angle
+        """Create a snapped direction vector of length 1 from given angle
 
         Snapping is done by taking the `sign` of each `component`.
         Formulas used: `x = sign(cos(angle))` and `y = sign(sin(angle))`
 
         Args:
-            angle (Radians): angle in radians
+            angle (Radians): Angle in radians
 
         Returns:
-            Self: snapped direction vector of length 1
+            Self: Snapped direction vector of length 1
         """
         x = cos(angle)
         if isclose(x, 0, abs_tol=1e-9):
@@ -150,9 +150,9 @@ class Vec2i(Vec2):
         return __class__(self.x, self.y)
 
     def copy(self) -> Vec2i:
-        """Returns a copied Vec2i
+        """Return a copied Vec2i
 
         Returns:
-            Vec2i: a new copy
+            Vec2i: A new copy
         """
         return __class__(self.x, self.y)

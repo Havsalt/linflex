@@ -21,52 +21,70 @@ class Vec3:
 
     @class_constant
     def ZERO(cls: type[Self]) -> Self:  # type: ignore
-        """Zero vector, a vector with all components set to `0`"""
+        """Vector with all components set to `0`"""
         return cls(0, 0, 0)
 
     @class_constant
     def ONE(cls: type[Self]) -> Self:  # type: ignore
-        """One vector, a vector with all components set to `1`"""
+        """Vector with all components set to `1`"""
         return cls(1, 1, 1)
 
     @class_constant
     def INF(cls: type[Self]) -> Self:  # type: ignore
-        """Infinity vector, a vector with all components set to `math.inf`"""
+        """Vector with all components set to `math.inf`"""
         return cls(INF, INF, INF)
 
     @class_constant
     def LEFT(cls: type[Self]) -> Self:  # type: ignore
-        """Left unit vector. Represents the local direction of left, and the global direction of west"""
+        """Left unit vector
+        
+        Represents both `local direction left`, and the `global direction west`
+        """
         return cls(-1, 0, 0)
 
     @class_constant
     def RIGHT(cls: type[Self]) -> Self:  # type: ignore
-        """Right unit vector. Represents the local direction of right, and the global direction of east"""
+        """Right unit vector
+        
+        Represents both `local direction right`, and `global direction east`
+        """
         return cls(1, 0, 0)
 
     @class_constant
     def UP(cls: type[Self]) -> Self:  # type: ignore
-        """Up unit vector"""
+        """Up unit vector
+        
+        Represents `up direction`
+        """
         return cls(0, 1, 0)
 
     @class_constant
     def DOWN(cls: type[Self]) -> Self:  # type: ignore
-        """Down unit vector"""
+        """Down unit vector
+        
+        Represents `down direction`
+        """
         return cls(0, -1, 0)
 
     @class_constant
     def FORWARD(cls: type[Self]) -> Self:  # type: ignore
-        """Forward unit vector. Represents the local direction of forward, and the global direction of north"""
+        """Forward unit vector
+        
+        Represents both `local direction forward`, and `global direction north`
+        """
         return cls(0, 0, 1)
 
     @class_constant
     def BACK(cls: type[Self]) -> Self:  # type: ignore
-        """Back unit vector. Represents the local direction of back, and the global direction of south"""
+        """Back/backward unit vector
+        
+        Represents `local direction back/backwards`, and `global direction south`
+        """
         return cls(0, 0, -1)
 
     @classmethod
     def from_angles(cls, angles: Vec3, /) -> Self:
-        """Creates a direction vector of length 1 from given angle
+        """Creates a direction vector of length `1` from given angle
 
         Args:
             angles (Vec3): vector representing rotation around each axis (x, y, z)
@@ -89,6 +107,13 @@ class Vec3:
         return cls(x, y, z)
 
     def __init__(self, x: float, y: float, z: float, /) -> None:
+        """Initialize vector
+
+        Args:
+            x (float): X component
+            y (float): Y component
+            z (float): Z component
+        """
         self.x = x
         self.y = y
         self.z = z

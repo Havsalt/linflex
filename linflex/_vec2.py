@@ -22,54 +22,76 @@ class Vec2:
 
     @class_constant
     def ZERO(cls: type[Self]) -> Self:  # type: ignore
-        """Zero vector, a vector with all components set to `0`"""
+        """Vector with all components set to `0`"""
         return cls(0, 0)
 
     @class_constant
     def ONE(cls: type[Self]) -> Self:  # type: ignore
-        """One vector, a vector with all components set to `1`"""
+        """Vector with all components set to `1`"""
         return cls(1, 1)
 
     @class_constant
     def INF(cls: type[Self]) -> Self:  # type: ignore
-        """Infinity vector, a vector with all components set to `math.inf`"""
+        """Vector with all components set to `math.inf`"""
         return cls(INF, INF)
 
     @class_constant
     def LEFT(cls: type[Self]) -> Self:  # type: ignore
-        """Left unit vector. Represents the direction of left"""
+        """Left unit vector
+        
+        Represents the `left direction`
+        """
         return cls(-1, 0)
 
     @class_constant
     def RIGHT(cls: type[Self]) -> Self:  # type: ignore
-        """Right unit vector. Represents the direction of right"""
+        """Right unit vector
+        
+        Represents the `right direction`
+        """
         return cls(1, 0)
 
     @class_constant
     def UP(cls: type[Self]) -> Self:  # type: ignore
-        """Up unit vector. Y is down in 2D, so this vector points -Y"""
+        """Up unit vector
+        
+        Represents the `up direction`
+
+        NOTE: Y is down in 2D, so this vector points -Y
+        """
         return cls(0, -1)
 
     @class_constant
     def DOWN(cls: type[Self]) -> Self:  # type: ignore
-        """Down unit vector. Y is down in 2D, so this vector points +Y"""
+        """Down unit vector
+        
+        Represents the `down direction`
+
+        NOTE: Y is down in 2D, so this vector points +Y
+        """
         return cls(0, 1)
 
     @classmethod
     def from_angle(cls, angle: Radians, /) -> Self:
-        """Creates a direction vector of length 1 from given angle
+        """Create a direction vector of length 1 from given angle
 
         Args:
-            angle (Radians): angle in radians
+            angle (Radians): Angle in radians
 
         Returns:
-            Self: direction vector of length 1
+            Self: Direction vector of length 1
         """
         x = cos(angle)
         y = sin(angle)
         return cls(x, y)
 
     def __init__(self, x: float, y: float, /) -> None:
+        """Initialize vector
+
+        Args:
+            x (float): X component
+            y (float): Y component
+        """
         self.x = x
         self.y = y
 
@@ -90,18 +112,18 @@ class Vec2:
         raise ValueError(f"item '{item}' does not correspond to x or y axis")
 
     def __str__(self) -> str:
-        """String representation
+        """Create string representation
 
         Returns:
-            str: representation containing the x and y component
+            str: Representation containing the x and y component
         """
         return f"{self.__class__.__name__}({self.x}, {self.y})"
 
     def __bool__(self) -> bool:
-        """Returns whether x or y is not zero
+        """Return whether x or y is not zero
 
         Returns:
-            bool: truthiness
+            bool: Truthiness
         """
         return bool(self.x or self.y)
 
@@ -241,60 +263,60 @@ class Vec2:
         return self.__class__(self.x, self.y)
 
     def copy(self) -> Self:
-        """Returns a copied Vec2
+        """Return a copied Vec2
 
         Returns:
-            Vec2: a new copy
+            Vec2: A new copy
         """
         return self.__copy__()
 
     def length(self) -> float:
-        """Returns the length of the vector
+        """Return the length of the vector
 
         Returns:
-            float: length
+            float: Length
         """
         if self.x == 0 and self.y == 0:
             return 0
         return sqrt(self.x * self.x + self.y * self.y)
 
     def length_squared(self) -> float:
-        """Returns the length of the vector squared
+        """Return the length of the vector squared
 
         Returns:
-            float: length squared
+            float: Length squared
         """
         if self.x == 0 and self.y == 0:
             return 0
         return self.x * self.x + self.y * self.y
 
     def distance_to(self, other: Vec2, /) -> float:
-        """Returns the relative distance to the other point
+        """Return the relative distance to the other point
 
         Args:
-            other (Vec2): other point
+            other (Vec2): Other point
 
         Returns:
-            float: distance
+            float: Distance
         """
         return (other - self).length()
 
     def distance_squared_to(self, other: Vec2, /) -> float:
-        """Returns the relative distance to the other point, squared
+        """Return the relative distance to the other point, squared
 
         Args:
-            other (Vec2): other point
+            other (Vec2): Other point
 
         Returns:
-            float: distance squared
+            float: Distance squared
         """
         return (other - self).length_squared()
 
     def normalized(self) -> Vec2:
-        """Returns a vector with length of 1, still with same direction
+        """Return a vector with length of 1, still with same direction
 
         Returns:
-            Vec2: normalized vector
+            Vec2: Normalized vector
         """
         length = self.length()
         if length == 0:
@@ -302,18 +324,18 @@ class Vec2:
         return self / self.length()
 
     def dot(self, other: Vec2, /) -> float:
-        """Returns the dot product between two 2D vectors
+        """Return the dot product between two 2D vectors
 
         Args:
-            other (Vec2): other vector
+            other (Vec2): Other vector
 
         Returns:
-            float: dot product
+            float: Dot product
         """
         return self.x * other.x + self.y * other.y
 
     def cross(self, other: Vec2, /) -> float:
-        """Cross product interpreted in 2D space, like defined in `Godot`
+        """Cross product interpreted in 2D space, like defined in the `Godot Game Engine`
 
         Args:
             other (Vec2): other vector
@@ -324,7 +346,7 @@ class Vec2:
         return self.x * other.y - self.y * other.x
 
     def direction_to(self, other: Vec2, /) -> Vec2:
-        """Returns the direction to the other point
+        """Return the direction to the other point
 
         Args:
             other (Vec2): other point
@@ -335,21 +357,21 @@ class Vec2:
         return (other - self).normalized()
 
     def angle(self, /) -> float:
-        """Returns the angle (measured in radians), using atan2
+        """Return the angle (measured in radians), using `atan2`
 
         Returns:
-            float: angle given in radians
+            float: Angle given in radians
         """
         return atan2(self.y, self.x)
 
     def angle_to(self, other: Vec2, /) -> float:
-        """Returns the angle (measured in radians) to the other point
+        """Return the angle (measured in radians) to the other point
 
         Args:
-            other (Vec2): other point
+            other (Vec2): Other point
 
         Returns:
-            float: angle given in radians
+            float: Angle given in radians
         """
         return (other - self).angle()
 
@@ -357,11 +379,11 @@ class Vec2:
         """Lerp towards vector `target` with `weight` ranging from 0 to 1
 
         Args:
-            target (Vec2): target to lerp towards
-            weight (int | float): percentage to lerp
+            target (Vec2): Target to lerp towards
+            weight (float): Percentage to lerp
 
         Returns:
-            Vec2: vector after performing interpolation
+            Vec2: Vector after performing interpolation
         """
         return Vec2(
             lerp(self.x, target.x, weight),
@@ -369,10 +391,10 @@ class Vec2:
         )
 
     def sign(self) -> Vec2:
-        """Returns a Vec2 with each component being the sign of the vector
+        """Return a Vec2 with each component being the sign of the vector
 
         Returns:
-            Vec2: vector with signed components
+            Vec2: Vector with signed components
         """
         return Vec2(
             sign(self.x),
@@ -380,14 +402,14 @@ class Vec2:
         )
 
     def clamped(self, smallest: Vec2, largest: Vec2) -> Vec2:
-        """Returns a new clamped vector
+        """Return a new clamped vector
 
         Args:
-            smallest (Vec2): lower bound for x and y
-            largest (Vec2): upper bound for x and y
+            smallest (Vec2): Lower bound for x and y
+            largest (Vec2): Upper bound for x and y
 
         Returns:
-            Vec2: vector clamped
+            Vec2: Vector clamped
         """
         return Vec2(
             clamp(self.x, smallest.x, largest.x),
@@ -398,11 +420,11 @@ class Vec2:
         """Move toward a vector, from a vector, with given change
 
         Args:
-            stop (Vec2): target vector
-            change (int | float): max distance to move
+            stop (Vec2): Target vector
+            change (int | float): Max distance to move
 
         Returns:
-            Vec2: new vector moved
+            Vec2: New vector moved
         """
         return Vec2(
             move_toward(self.x, stop.x, change),
@@ -410,13 +432,13 @@ class Vec2:
         )
 
     def rotated(self, angle: float, /) -> Vec2:
-        """Returns a vector rotated clockwise by `angle` given in radians
+        """Return a vector rotated clockwise by `angle` given in radians
 
         Args:
-            angle (float): radians to rotate with
+            angle (float): Radians to rotate with
 
         Returns:
-            Vec2: rotated vector
+            Vec2: Rotated vector
         """
         cos_rad = cos(angle)
         sin_rad = sin(angle)
@@ -425,14 +447,14 @@ class Vec2:
         return Vec2(x, y)
 
     def rotated_around(self, angle: float, point: Vec2) -> Vec2:
-        """Returns a vector rotated by `angle` given in radians, around `point`
+        """Return a vector rotated by `angle` given in radians, around `point`
 
         Args:
-            angle (float): radians to rotate with
-            point (Vec2): point to rotate around
+            angle (float): Radians to rotate with
+            point (Vec2): Point to rotate around
 
         Returns:
-            Vec2: vector rotated around `point`
+            Vec2: Vector rotated around `point`
         """
         diff = self - point
         cos_rad = cos(angle)
