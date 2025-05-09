@@ -111,6 +111,14 @@ class Vec2:
             return self.y
         raise ValueError(f"item '{item}' does not correspond to x or y axis")
 
+    def __repr__(self) -> str:
+        """Create representation
+
+        Returns:
+            str: Representation containing the x and y component
+        """
+        return f"{self.__class__.__name__}({self.x}, {self.y})"
+
     def __str__(self) -> str:
         """Create string representation
 
