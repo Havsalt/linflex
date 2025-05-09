@@ -107,7 +107,7 @@ def test_rotation():
 
 def test_clamped():
     v = Vec2(5, 10)
-    assert v.clamped(Vec2(0, 0), Vec2(4, 8)) == Vec2(4, 8)
+    assert v.clamp(Vec2(0, 0), Vec2(4, 8)) == Vec2(4, 8)
 
 
 def test_abs():

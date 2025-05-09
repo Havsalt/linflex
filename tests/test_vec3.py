@@ -122,7 +122,7 @@ def test_clamped():
     v = Vec3(10, 15, 20)
     min_vec = Vec3(5, 5, 5)
     max_vec = Vec3(10, 10, 10)
-    clamped = v.clamped(min_vec, max_vec)
+    clamped = v.clamp(min_vec, max_vec)
     assert clamped == Vec3(10, 10, 10)
 
 

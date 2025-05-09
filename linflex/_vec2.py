@@ -421,7 +421,7 @@ class Vec2:
             sign(self.y),
         )
 
-    def clamped(self, smallest: Vec2, largest: Vec2) -> Vec2:
+    def clamp(self, smallest: Vec2, largest: Vec2) -> Vec2:
         """Return a new clamped vector
 
         Args:

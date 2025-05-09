@@ -366,7 +366,7 @@ class Vec3:
             sign(self.z),
         )
 
-    def clamped(self, smallest: Vec3, largest: Vec3, /) -> Vec3:
+    def clamp(self, smallest: Vec3, largest: Vec3, /) -> Vec3:
         return Vec3(
             clamp(self.x, smallest.x, largest.x),
             clamp(self.y, smallest.y, largest.y),
