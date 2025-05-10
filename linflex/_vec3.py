@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from math import sqrt, floor, ceil, cos, sin, atan2, inf as INF
-from typing import Iterator, Literal
+from typing import Iterator, Literal, Any
 
 from typing_extensions import Self
 
@@ -330,7 +330,7 @@ class Vec3:
     def __copy__(self) -> Self:
         return self.__class__(self.x, self.y, self.z)
 
-    def __deepcopy__(self, _memo) -> Self:
+    def __deepcopy__(self, _memo: dict[int, Any]) -> Self:
         return self.__class__(self.x, self.y, self.z)
 
     def copy(self) -> Self:
