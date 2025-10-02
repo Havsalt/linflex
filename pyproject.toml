@@ -1,3 +1,7 @@
+[build-system]
+requires = ["uv_build~=0.8.15"]
+build-backend = "uv_build"
+
 [project]
 name = "linflex"
 version = "0.3.1"
@@ -12,21 +16,10 @@ readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">= 3.10"
 
-[project.urls]
-Source = "https://github.com/havsalt/linflex.git"
-
-[build-system]
-requires = ["hatchling==1.26.3"]
-build-backend = "hatchling.build"
-
-[tool.rye]
-managed = true
-dev-dependencies = [
-    "pytest>=8.3.4",
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
 ]
 
-[tool.hatch.metadata]
-allow-direct-references = true
-
-[tool.hatch.build.targets.wheel]
-packages = ["linflex"]
+[project.urls]
+Source = "https://github.com/havsalt/linflex.git"
