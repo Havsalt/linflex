@@ -10,7 +10,7 @@ authors = [
     { name = "Havsalt", email = "77575424+Havsalt@users.noreply.github.com" }
 ]
 dependencies = [
-    "typing-extensions>=4.4.0",
+    "typing-extensions>=4.4.0 ; python_version < '3.11'",
 ]
 readme = "README.md"
 license = { file = "LICENSE" }

@@ -34,10 +34,10 @@ wheels = [
 
 [[package]]
 name = "linflex"
-version = "0.3.1"
+version = "0.3.2"
 source = { editable = "." }
 dependencies = [
-    { name = "typing-extensions" },
+    { name = "typing-extensions", marker = "python_full_version < '3.11'" },
 ]
 
 [package.dev-dependencies]
@@ -46,7 +46,7 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "typing-extensions", specifier = ">=4.4.0" }]
+requires-dist = [{ name = "typing-extensions", marker = "python_full_version < '3.11'", specifier = ">=4.4.0" }]
 
 [package.metadata.requires-dev]
 dev = [{ name = "pytest", specifier = ">=8.4.2" }]
