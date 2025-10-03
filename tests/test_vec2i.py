@@ -6,6 +6,25 @@ from linflex import Vec2i
 DIAGONAL_LENGTH = Vec2i(1, 1).length()  # ~1.414
 
 
+def test_constants():
+    assert Vec2i.ZERO == Vec2i(0, 0)
+    assert Vec2i.ONE == Vec2i(1, 1)
+    # TODO: Implement `INF` subtype for `int`
+    # assert Vec2i.INF == Vec2i(INF, INF)
+    assert Vec2i.LEFT == Vec2i(-1, 0)
+    assert Vec2i.RIGHT == Vec2i(1, 0)
+    assert Vec2i.UP == Vec2i(0, -1)
+    assert Vec2i.DOWN == Vec2i(0, 1)
+    # Constants should generate a new unique instance each time to avoid mutation
+    assert Vec2i.ZERO is not Vec2i.ZERO
+    assert Vec2i.ONE is not Vec2i.ONE
+    assert Vec2i.INF is not Vec2i.INF
+    assert Vec2i.LEFT is not Vec2i.LEFT
+    assert Vec2i.RIGHT is not Vec2i.RIGHT
+    assert Vec2i.UP is not Vec2i.UP
+    assert Vec2i.DOWN is not Vec2i.DOWN
+
+
 def test_from_angle():
     v1 = Vec2i.from_angle(PI)
     assert isclose(v1.length(), 1)
