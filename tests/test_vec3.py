@@ -1,4 +1,4 @@
-from math import isclose, floor, ceil, pi as PI
+from math import isclose, floor, ceil, pi as PI, inf as INF
 
 from linflex import Vec3
 
@@ -13,7 +13,7 @@ def test_initialization():
 def test_constants():
     assert Vec3.ZERO == Vec3(0, 0, 0)
     assert Vec3.ONE == Vec3(1, 1, 1)
-    assert Vec3.INF == Vec3(float("inf"), float("inf"), float("inf"))
+    assert Vec3.INF == Vec3(INF, INF, INF)
     assert Vec3.LEFT == Vec3(-1, 0, 0)
     assert Vec3.RIGHT == Vec3(1, 0, 0)
     assert Vec3.UP == Vec3(0, 1, 0)
