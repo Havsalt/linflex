@@ -51,6 +51,10 @@ assert x == 3 and y == 4
   - `Vec2i`
   - `Vec3`
 
+## Versioning
+
+`charz` uses [SemVer](https://semver.org/), according to [The Cargo Book](https://doc.rust-lang.org/cargo/reference/semver.html).
+
 ## License
 
 MIT
