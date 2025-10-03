@@ -1,5 +1,6 @@
 .vscode/
 dev.py
+Todo.md
 
 # python generated files
 __pycache__/
