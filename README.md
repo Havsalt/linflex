@@ -53,7 +53,7 @@ assert x == 3 and y == 4
 
 ## Versioning
 
-`charz` uses [SemVer](https://semver.org/), according to [The Cargo Book](https://doc.rust-lang.org/cargo/reference/semver.html).
+`linflex` uses [SemVer](https://semver.org/), according to [The Cargo Book](https://doc.rust-lang.org/cargo/reference/semver.html).
 
 ## License
 
