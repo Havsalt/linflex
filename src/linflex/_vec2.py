@@ -200,6 +200,21 @@ class Vec2:
         """
         return Vec2(self.x + other.x, self.y + other.y)
 
+    def __radd__(self, other: Vec2 | int | float) -> Vec2:
+        """Right-hand addition.
+
+        Adds this vector to another vector or scalar, when this vector is on the right side of the `+` operator.
+
+        Args:
+            other (Vec2 | int | float): Value to add.
+
+        Returns:
+            Vec2: Result of addition.
+        """
+        if isinstance(other, Vec2):
+            return Vec2(other.x + self.x, other.y + self.y)
+        return Vec2(other + self.x, other + self.y)
+
     def __iadd__(self, other: Vec2) -> Vec2:
         """In-place add two vectors.
 
@@ -223,6 +238,21 @@ class Vec2:
             Vec2: Result of subtraction.
         """
         return Vec2(self.x - other.x, self.y - other.y)
+
+    def __rsub__(self, other: Vec2 | int | float) -> Vec2:
+        """Right-hand subtraction.
+
+        Subtracts this vector from another vector or scalar, when this vector is on the right side of the `-` operator.
+
+        Args:
+            other (Vec2 | int | float): Value to subtract from.
+
+        Returns:
+            Vec2: Result of subtraction.
+        """
+        if isinstance(other, Vec2):
+            return Vec2(other.x - self.x, other.y - self.y)
+        return Vec2(other - self.x, other - self.y)
 
     def __isub__(self, other: Vec2) -> Vec2:
         """In-place subtract two vectors.
@@ -255,6 +285,21 @@ class Vec2:
             self.x * other,
             self.y * other,
         )
+
+    def __rmul__(self, other: Vec2 | int | float) -> Vec2:
+        """Right-hand multiplication.
+
+        Multiplies another vector or scalar by this vector, when this vector is on the right side of the `*` operator.
+
+        Args:
+            other (Vec2 | int | float): Value to multiply.
+
+        Returns:
+            Vec2: Result of multiplication.
+        """
+        if isinstance(other, Vec2):
+            return Vec2(other.x * self.x, other.y * self.y)
+        return Vec2(other * self.x, other * self.y)
 
     def __imul__(self, other: Vec2 | int | float) -> Vec2:
         """In-place multiply vector by another vector or scalar.
@@ -292,6 +337,21 @@ class Vec2:
             self.y // other,
         )
 
+    def __rfloordiv__(self, other: Vec2 | int | float) -> Vec2:
+        """Right-hand floor division.
+
+        Floor divides another vector or scalar by this vector, when this vector is on the right side of the `//` operator.
+
+        Args:
+            other (Vec2 | int | float): Value to divide.
+
+        Returns:
+            Vec2: Result of floor division.
+        """
+        if isinstance(other, Vec2):
+            return Vec2(other.x // self.x, other.y // self.y)
+        return Vec2(other // self.x, other // self.y)
+
     def __ifloordiv__(self, other: Vec2 | int | float) -> Vec2:
         """In-place floor divide vector by another vector or scalar.
 
@@ -328,6 +388,21 @@ class Vec2:
             self.y / other,
         )
 
+    def __rtruediv__(self, other: Vec2 | int | float) -> Vec2:
+        """Right-hand true division.
+
+        Divides another vector or scalar by this vector, when this vector is on the right side of the `/` operator.
+
+        Args:
+            other (Vec2 | int | float): Value to divide.
+
+        Returns:
+            Vec2: Result of division.
+        """
+        if isinstance(other, Vec2):
+            return Vec2(other.x / self.x, other.y / self.y)
+        return Vec2(other / self.x, other / self.y)
+
     def __itruediv__(self, other: Vec2 | int | float) -> Vec2:
         """In-place divide vector by another vector or scalar.
 
@@ -363,6 +438,21 @@ class Vec2:
             self.x % other,
             self.y % other,
         )
+
+    def __rmod__(self, other: Vec2 | int | float) -> Vec2:
+        """Right-hand modulo.
+
+        Computes the modulo of another vector or scalar by this vector, when this vector is on the right side of the `%` operator.
+
+        Args:
+            other (Vec2 | int | float): Value to modulo.
+
+        Returns:
+            Vec2: Result of modulo.
+        """
+        if isinstance(other, Vec2):
+            return Vec2(other.x % self.x, other.y % self.y)
+        return Vec2(other % self.x, other % self.y)
 
     def __imod__(self, other: Vec2 | int | float) -> Vec2:
         """In-place modulo vector by another vector or scalar.
