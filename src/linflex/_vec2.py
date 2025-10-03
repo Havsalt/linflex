@@ -57,7 +57,9 @@ class Vec2:
 
         Represents the `up direction`.
 
-        NOTE: Y is down in 2D, so this vector points -Y.
+        `NOTE`
+        Since `positive Y` points `downward` in this 2D coordinate system,
+        the `up direction` is represented by `-Y`.
         """
         return cls(0, -1)
 
@@ -67,7 +69,9 @@ class Vec2:
 
         Represents the `down direction`.
 
-        NOTE: Y is down in 2D, so this vector points +Y.
+        `NOTE`
+        Since `positive Y` points `downward` in this 2D coordinate system,
+        the `down direction` is represented by `+Y`.
         """
         return cls(0, 1)
 
