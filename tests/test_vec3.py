@@ -1,4 +1,4 @@
-from math import isclose, floor, ceil, pi
+from math import isclose, floor, ceil, pi as PI
 
 from linflex import Vec3
 
@@ -129,7 +129,7 @@ def test_clamped():
 # Test rotation methods
 def test_rotation():
     v = Vec3(1, 0, 0)
-    angle = pi / 2  # 90 degrees in radians
+    angle = PI / 2  # 90 degrees in radians
     rotated = v.rotated_around_z(angle)
     assert isclose(rotated.x, 0, abs_tol=1e-9)
     assert isclose(rotated.y, 1, abs_tol=1e-9)
