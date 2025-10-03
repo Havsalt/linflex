@@ -33,11 +33,11 @@ classifiers = [
     "Typing :: Typed",
 ]
 
+[project.urls]
+Source = "https://github.com/havsalt/linflex.git"
+
 [dependency-groups]
 dev = [
     "ruff~=0.13.0",
     "pytest~=8.4",
 ]
-
-[project.urls]
-Source = "https://github.com/havsalt/linflex.git"
