@@ -1,13 +1,12 @@
-from typing import TypeVar
+from typing import TypeVar, Callable, Generic, Any
 
 
 T = TypeVar("T")
 
 
-# TODO: Add the remaining annotations
-class class_constant:
-    def __init__(self, method) -> None:
-        self.fget = method
+class class_constant(Generic[T]):
+    def __init__(self, method: Callable[[type[T]], T]) -> None:
+        self.fget: Callable[[type[T]], T] = method
 
-    def __get__(self, _instance, owner: type[T]) -> T:
+    def __get__(self, _instance: Any, owner: type[T]) -> T:
         return self.fget(owner)
