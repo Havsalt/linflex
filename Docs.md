@@ -3,162 +3,156 @@
 ## Table of Contents
 
 * [linflex](#linflex)
-* [linflex.\_annotations](#linflex._annotations)
-* [linflex.\_class\_constant](#linflex._class_constant)
-* [linflex.\_numerical\_tools](#linflex._numerical_tools)
-  * [lerp](#linflex._numerical_tools.lerp)
-  * [sign](#linflex._numerical_tools.sign)
-  * [clamp](#linflex._numerical_tools.clamp)
-  * [move\_toward](#linflex._numerical_tools.move_toward)
-* [linflex.\_vec2](#linflex._vec2)
-  * [Vec2](#linflex._vec2.Vec2)
-    * [ZERO](#linflex._vec2.Vec2.ZERO)
-    * [ONE](#linflex._vec2.Vec2.ONE)
-    * [INF](#linflex._vec2.Vec2.INF)
-    * [LEFT](#linflex._vec2.Vec2.LEFT)
-    * [RIGHT](#linflex._vec2.Vec2.RIGHT)
-    * [UP](#linflex._vec2.Vec2.UP)
-    * [DOWN](#linflex._vec2.Vec2.DOWN)
-    * [from\_angle](#linflex._vec2.Vec2.from_angle)
-    * [\_\_init\_\_](#linflex._vec2.Vec2.__init__)
-    * [\_\_reduce\_\_](#linflex._vec2.Vec2.__reduce__)
-    * [\_\_len\_\_](#linflex._vec2.Vec2.__len__)
-    * [\_\_iter\_\_](#linflex._vec2.Vec2.__iter__)
-    * [\_\_getitem\_\_](#linflex._vec2.Vec2.__getitem__)
-    * [\_\_abs\_\_](#linflex._vec2.Vec2.__abs__)
-    * [\_\_round\_\_](#linflex._vec2.Vec2.__round__)
-    * [\_\_floor\_\_](#linflex._vec2.Vec2.__floor__)
-    * [\_\_ceil\_\_](#linflex._vec2.Vec2.__ceil__)
-    * [\_\_neg\_\_](#linflex._vec2.Vec2.__neg__)
-    * [\_\_add\_\_](#linflex._vec2.Vec2.__add__)
-    * [\_\_radd\_\_](#linflex._vec2.Vec2.__radd__)
-    * [\_\_iadd\_\_](#linflex._vec2.Vec2.__iadd__)
-    * [\_\_sub\_\_](#linflex._vec2.Vec2.__sub__)
-    * [\_\_rsub\_\_](#linflex._vec2.Vec2.__rsub__)
-    * [\_\_isub\_\_](#linflex._vec2.Vec2.__isub__)
-    * [\_\_mul\_\_](#linflex._vec2.Vec2.__mul__)
-    * [\_\_rmul\_\_](#linflex._vec2.Vec2.__rmul__)
-    * [\_\_imul\_\_](#linflex._vec2.Vec2.__imul__)
-    * [\_\_floordiv\_\_](#linflex._vec2.Vec2.__floordiv__)
-    * [\_\_rfloordiv\_\_](#linflex._vec2.Vec2.__rfloordiv__)
-    * [\_\_ifloordiv\_\_](#linflex._vec2.Vec2.__ifloordiv__)
-    * [\_\_truediv\_\_](#linflex._vec2.Vec2.__truediv__)
-    * [\_\_rtruediv\_\_](#linflex._vec2.Vec2.__rtruediv__)
-    * [\_\_itruediv\_\_](#linflex._vec2.Vec2.__itruediv__)
-    * [\_\_mod\_\_](#linflex._vec2.Vec2.__mod__)
-    * [\_\_rmod\_\_](#linflex._vec2.Vec2.__rmod__)
-    * [\_\_imod\_\_](#linflex._vec2.Vec2.__imod__)
-    * [\_\_eq\_\_](#linflex._vec2.Vec2.__eq__)
-    * [\_\_ne\_\_](#linflex._vec2.Vec2.__ne__)
-    * [\_\_gt\_\_](#linflex._vec2.Vec2.__gt__)
-    * [\_\_lt\_\_](#linflex._vec2.Vec2.__lt__)
-    * [\_\_ge\_\_](#linflex._vec2.Vec2.__ge__)
-    * [\_\_le\_\_](#linflex._vec2.Vec2.__le__)
-    * [\_\_copy\_\_](#linflex._vec2.Vec2.__copy__)
-    * [\_\_deepcopy\_\_](#linflex._vec2.Vec2.__deepcopy__)
-    * [copy](#linflex._vec2.Vec2.copy)
-    * [length](#linflex._vec2.Vec2.length)
-    * [length\_squared](#linflex._vec2.Vec2.length_squared)
-    * [distance\_to](#linflex._vec2.Vec2.distance_to)
-    * [distance\_squared\_to](#linflex._vec2.Vec2.distance_squared_to)
-    * [normalized](#linflex._vec2.Vec2.normalized)
-    * [dot](#linflex._vec2.Vec2.dot)
-    * [cross](#linflex._vec2.Vec2.cross)
-    * [direction\_to](#linflex._vec2.Vec2.direction_to)
-    * [angle](#linflex._vec2.Vec2.angle)
-    * [angle\_to](#linflex._vec2.Vec2.angle_to)
-    * [lerp](#linflex._vec2.Vec2.lerp)
-    * [sign](#linflex._vec2.Vec2.sign)
-    * [clamp](#linflex._vec2.Vec2.clamp)
-    * [move\_toward](#linflex._vec2.Vec2.move_toward)
-    * [rotated](#linflex._vec2.Vec2.rotated)
-    * [rotated\_around](#linflex._vec2.Vec2.rotated_around)
-* [linflex.\_vec2i](#linflex._vec2i)
-  * [Vec2i](#linflex._vec2i.Vec2i)
-    * [from\_angle](#linflex._vec2i.Vec2i.from_angle)
-    * [\_\_init\_\_](#linflex._vec2i.Vec2i.__init__)
-    * [\_\_add\_\_](#linflex._vec2i.Vec2i.__add__)
-    * [\_\_iadd\_\_](#linflex._vec2i.Vec2i.__iadd__)
-    * [\_\_sub\_\_](#linflex._vec2i.Vec2i.__sub__)
-    * [\_\_isub\_\_](#linflex._vec2i.Vec2i.__isub__)
-    * [\_\_mul\_\_](#linflex._vec2i.Vec2i.__mul__)
-    * [\_\_imul\_\_](#linflex._vec2i.Vec2i.__imul__)
-    * [\_\_floordiv\_\_](#linflex._vec2i.Vec2i.__floordiv__)
-    * [\_\_ifloordiv\_\_](#linflex._vec2i.Vec2i.__ifloordiv__)
-    * [\_\_truediv\_\_](#linflex._vec2i.Vec2i.__truediv__)
-    * [\_\_itruediv\_\_](#linflex._vec2i.Vec2i.__itruediv__)
-    * [\_\_mod\_\_](#linflex._vec2i.Vec2i.__mod__)
-    * [\_\_imod\_\_](#linflex._vec2i.Vec2i.__imod__)
-* [linflex.\_vec3](#linflex._vec3)
-  * [Vec3](#linflex._vec3.Vec3)
-    * [ZERO](#linflex._vec3.Vec3.ZERO)
-    * [ONE](#linflex._vec3.Vec3.ONE)
-    * [INF](#linflex._vec3.Vec3.INF)
-    * [LEFT](#linflex._vec3.Vec3.LEFT)
-    * [RIGHT](#linflex._vec3.Vec3.RIGHT)
-    * [UP](#linflex._vec3.Vec3.UP)
-    * [DOWN](#linflex._vec3.Vec3.DOWN)
-    * [FORWARD](#linflex._vec3.Vec3.FORWARD)
-    * [BACK](#linflex._vec3.Vec3.BACK)
-    * [from\_angles](#linflex._vec3.Vec3.from_angles)
-    * [\_\_init\_\_](#linflex._vec3.Vec3.__init__)
-    * [\_\_reduce\_\_](#linflex._vec3.Vec3.__reduce__)
-    * [\_\_len\_\_](#linflex._vec3.Vec3.__len__)
-    * [\_\_iter\_\_](#linflex._vec3.Vec3.__iter__)
-    * [\_\_getitem\_\_](#linflex._vec3.Vec3.__getitem__)
-    * [\_\_repr\_\_](#linflex._vec3.Vec3.__repr__)
-    * [\_\_str\_\_](#linflex._vec3.Vec3.__str__)
-    * [\_\_bool\_\_](#linflex._vec3.Vec3.__bool__)
-    * [\_\_abs\_\_](#linflex._vec3.Vec3.__abs__)
-    * [\_\_round\_\_](#linflex._vec3.Vec3.__round__)
-    * [\_\_floor\_\_](#linflex._vec3.Vec3.__floor__)
-    * [\_\_ceil\_\_](#linflex._vec3.Vec3.__ceil__)
-    * [\_\_add\_\_](#linflex._vec3.Vec3.__add__)
-    * [\_\_radd\_\_](#linflex._vec3.Vec3.__radd__)
-    * [\_\_iadd\_\_](#linflex._vec3.Vec3.__iadd__)
-    * [\_\_sub\_\_](#linflex._vec3.Vec3.__sub__)
-    * [\_\_rsub\_\_](#linflex._vec3.Vec3.__rsub__)
-    * [\_\_isub\_\_](#linflex._vec3.Vec3.__isub__)
-    * [\_\_mul\_\_](#linflex._vec3.Vec3.__mul__)
-    * [\_\_rmul\_\_](#linflex._vec3.Vec3.__rmul__)
-    * [\_\_imul\_\_](#linflex._vec3.Vec3.__imul__)
-    * [\_\_floordiv\_\_](#linflex._vec3.Vec3.__floordiv__)
-    * [\_\_rfloordiv\_\_](#linflex._vec3.Vec3.__rfloordiv__)
-    * [\_\_ifloordiv\_\_](#linflex._vec3.Vec3.__ifloordiv__)
-    * [\_\_truediv\_\_](#linflex._vec3.Vec3.__truediv__)
-    * [\_\_rtruediv\_\_](#linflex._vec3.Vec3.__rtruediv__)
-    * [\_\_itruediv\_\_](#linflex._vec3.Vec3.__itruediv__)
-    * [\_\_mod\_\_](#linflex._vec3.Vec3.__mod__)
-    * [\_\_rmod\_\_](#linflex._vec3.Vec3.__rmod__)
-    * [\_\_imod\_\_](#linflex._vec3.Vec3.__imod__)
-    * [\_\_eq\_\_](#linflex._vec3.Vec3.__eq__)
-    * [\_\_ne\_\_](#linflex._vec3.Vec3.__ne__)
-    * [\_\_gt\_\_](#linflex._vec3.Vec3.__gt__)
-    * [\_\_lt\_\_](#linflex._vec3.Vec3.__lt__)
-    * [\_\_ge\_\_](#linflex._vec3.Vec3.__ge__)
-    * [\_\_le\_\_](#linflex._vec3.Vec3.__le__)
-    * [\_\_copy\_\_](#linflex._vec3.Vec3.__copy__)
-    * [\_\_deepcopy\_\_](#linflex._vec3.Vec3.__deepcopy__)
-    * [copy](#linflex._vec3.Vec3.copy)
-    * [length](#linflex._vec3.Vec3.length)
-    * [length\_squared](#linflex._vec3.Vec3.length_squared)
-    * [normalized](#linflex._vec3.Vec3.normalized)
-    * [lerp](#linflex._vec3.Vec3.lerp)
-    * [sign](#linflex._vec3.Vec3.sign)
-    * [clamp](#linflex._vec3.Vec3.clamp)
-    * [move\_toward](#linflex._vec3.Vec3.move_toward)
-    * [distance\_to](#linflex._vec3.Vec3.distance_to)
-    * [distance\_squared\_to](#linflex._vec3.Vec3.distance_squared_to)
-    * [direction\_to](#linflex._vec3.Vec3.direction_to)
-    * [dot](#linflex._vec3.Vec3.dot)
-    * [cross](#linflex._vec3.Vec3.cross)
-    * [angles](#linflex._vec3.Vec3.angles)
-    * [angles\_to](#linflex._vec3.Vec3.angles_to)
-    * [rotated\_around\_x](#linflex._vec3.Vec3.rotated_around_x)
-    * [rotated\_around\_y](#linflex._vec3.Vec3.rotated_around_y)
-    * [rotated\_around\_z](#linflex._vec3.Vec3.rotated_around_z)
-    * [rotated](#linflex._vec3.Vec3.rotated)
-    * [rotated\_around](#linflex._vec3.Vec3.rotated_around)
+  * [lerp](#linflex.lerp)
+  * [sign](#linflex.sign)
+  * [clamp](#linflex.clamp)
+  * [move\_toward](#linflex.move_toward)
+  * [Vec2](#linflex.Vec2)
+    * [ZERO](#linflex.Vec2.ZERO)
+    * [ONE](#linflex.Vec2.ONE)
+    * [INF](#linflex.Vec2.INF)
+    * [LEFT](#linflex.Vec2.LEFT)
+    * [RIGHT](#linflex.Vec2.RIGHT)
+    * [UP](#linflex.Vec2.UP)
+    * [DOWN](#linflex.Vec2.DOWN)
+    * [from\_angle](#linflex.Vec2.from_angle)
+    * [\_\_init\_\_](#linflex.Vec2.__init__)
+    * [\_\_reduce\_\_](#linflex.Vec2.__reduce__)
+    * [\_\_len\_\_](#linflex.Vec2.__len__)
+    * [\_\_iter\_\_](#linflex.Vec2.__iter__)
+    * [\_\_getitem\_\_](#linflex.Vec2.__getitem__)
+    * [\_\_abs\_\_](#linflex.Vec2.__abs__)
+    * [\_\_round\_\_](#linflex.Vec2.__round__)
+    * [\_\_floor\_\_](#linflex.Vec2.__floor__)
+    * [\_\_ceil\_\_](#linflex.Vec2.__ceil__)
+    * [\_\_neg\_\_](#linflex.Vec2.__neg__)
+    * [\_\_add\_\_](#linflex.Vec2.__add__)
+    * [\_\_radd\_\_](#linflex.Vec2.__radd__)
+    * [\_\_iadd\_\_](#linflex.Vec2.__iadd__)
+    * [\_\_sub\_\_](#linflex.Vec2.__sub__)
+    * [\_\_rsub\_\_](#linflex.Vec2.__rsub__)
+    * [\_\_isub\_\_](#linflex.Vec2.__isub__)
+    * [\_\_mul\_\_](#linflex.Vec2.__mul__)
+    * [\_\_rmul\_\_](#linflex.Vec2.__rmul__)
+    * [\_\_imul\_\_](#linflex.Vec2.__imul__)
+    * [\_\_floordiv\_\_](#linflex.Vec2.__floordiv__)
+    * [\_\_rfloordiv\_\_](#linflex.Vec2.__rfloordiv__)
+    * [\_\_ifloordiv\_\_](#linflex.Vec2.__ifloordiv__)
+    * [\_\_truediv\_\_](#linflex.Vec2.__truediv__)
+    * [\_\_rtruediv\_\_](#linflex.Vec2.__rtruediv__)
+    * [\_\_itruediv\_\_](#linflex.Vec2.__itruediv__)
+    * [\_\_mod\_\_](#linflex.Vec2.__mod__)
+    * [\_\_rmod\_\_](#linflex.Vec2.__rmod__)
+    * [\_\_imod\_\_](#linflex.Vec2.__imod__)
+    * [\_\_eq\_\_](#linflex.Vec2.__eq__)
+    * [\_\_ne\_\_](#linflex.Vec2.__ne__)
+    * [\_\_gt\_\_](#linflex.Vec2.__gt__)
+    * [\_\_lt\_\_](#linflex.Vec2.__lt__)
+    * [\_\_ge\_\_](#linflex.Vec2.__ge__)
+    * [\_\_le\_\_](#linflex.Vec2.__le__)
+    * [\_\_copy\_\_](#linflex.Vec2.__copy__)
+    * [\_\_deepcopy\_\_](#linflex.Vec2.__deepcopy__)
+    * [copy](#linflex.Vec2.copy)
+    * [length](#linflex.Vec2.length)
+    * [length\_squared](#linflex.Vec2.length_squared)
+    * [distance\_to](#linflex.Vec2.distance_to)
+    * [distance\_squared\_to](#linflex.Vec2.distance_squared_to)
+    * [normalized](#linflex.Vec2.normalized)
+    * [dot](#linflex.Vec2.dot)
+    * [cross](#linflex.Vec2.cross)
+    * [direction\_to](#linflex.Vec2.direction_to)
+    * [angle](#linflex.Vec2.angle)
+    * [angle\_to](#linflex.Vec2.angle_to)
+    * [lerp](#linflex.Vec2.lerp)
+    * [sign](#linflex.Vec2.sign)
+    * [clamp](#linflex.Vec2.clamp)
+    * [move\_toward](#linflex.Vec2.move_toward)
+    * [rotated](#linflex.Vec2.rotated)
+    * [rotated\_around](#linflex.Vec2.rotated_around)
+  * [Vec2i](#linflex.Vec2i)
+    * [from\_angle](#linflex.Vec2i.from_angle)
+    * [\_\_init\_\_](#linflex.Vec2i.__init__)
+    * [\_\_add\_\_](#linflex.Vec2i.__add__)
+    * [\_\_iadd\_\_](#linflex.Vec2i.__iadd__)
+    * [\_\_sub\_\_](#linflex.Vec2i.__sub__)
+    * [\_\_isub\_\_](#linflex.Vec2i.__isub__)
+    * [\_\_mul\_\_](#linflex.Vec2i.__mul__)
+    * [\_\_imul\_\_](#linflex.Vec2i.__imul__)
+    * [\_\_floordiv\_\_](#linflex.Vec2i.__floordiv__)
+    * [\_\_ifloordiv\_\_](#linflex.Vec2i.__ifloordiv__)
+    * [\_\_truediv\_\_](#linflex.Vec2i.__truediv__)
+    * [\_\_itruediv\_\_](#linflex.Vec2i.__itruediv__)
+    * [\_\_mod\_\_](#linflex.Vec2i.__mod__)
+    * [\_\_imod\_\_](#linflex.Vec2i.__imod__)
+  * [Vec3](#linflex.Vec3)
+    * [ZERO](#linflex.Vec3.ZERO)
+    * [ONE](#linflex.Vec3.ONE)
+    * [INF](#linflex.Vec3.INF)
+    * [LEFT](#linflex.Vec3.LEFT)
+    * [RIGHT](#linflex.Vec3.RIGHT)
+    * [UP](#linflex.Vec3.UP)
+    * [DOWN](#linflex.Vec3.DOWN)
+    * [FORWARD](#linflex.Vec3.FORWARD)
+    * [BACK](#linflex.Vec3.BACK)
+    * [from\_angles](#linflex.Vec3.from_angles)
+    * [\_\_init\_\_](#linflex.Vec3.__init__)
+    * [\_\_reduce\_\_](#linflex.Vec3.__reduce__)
+    * [\_\_len\_\_](#linflex.Vec3.__len__)
+    * [\_\_iter\_\_](#linflex.Vec3.__iter__)
+    * [\_\_getitem\_\_](#linflex.Vec3.__getitem__)
+    * [\_\_repr\_\_](#linflex.Vec3.__repr__)
+    * [\_\_str\_\_](#linflex.Vec3.__str__)
+    * [\_\_bool\_\_](#linflex.Vec3.__bool__)
+    * [\_\_abs\_\_](#linflex.Vec3.__abs__)
+    * [\_\_round\_\_](#linflex.Vec3.__round__)
+    * [\_\_floor\_\_](#linflex.Vec3.__floor__)
+    * [\_\_ceil\_\_](#linflex.Vec3.__ceil__)
+    * [\_\_add\_\_](#linflex.Vec3.__add__)
+    * [\_\_radd\_\_](#linflex.Vec3.__radd__)
+    * [\_\_iadd\_\_](#linflex.Vec3.__iadd__)
+    * [\_\_sub\_\_](#linflex.Vec3.__sub__)
+    * [\_\_rsub\_\_](#linflex.Vec3.__rsub__)
+    * [\_\_isub\_\_](#linflex.Vec3.__isub__)
+    * [\_\_mul\_\_](#linflex.Vec3.__mul__)
+    * [\_\_rmul\_\_](#linflex.Vec3.__rmul__)
+    * [\_\_imul\_\_](#linflex.Vec3.__imul__)
+    * [\_\_floordiv\_\_](#linflex.Vec3.__floordiv__)
+    * [\_\_rfloordiv\_\_](#linflex.Vec3.__rfloordiv__)
+    * [\_\_ifloordiv\_\_](#linflex.Vec3.__ifloordiv__)
+    * [\_\_truediv\_\_](#linflex.Vec3.__truediv__)
+    * [\_\_rtruediv\_\_](#linflex.Vec3.__rtruediv__)
+    * [\_\_itruediv\_\_](#linflex.Vec3.__itruediv__)
+    * [\_\_mod\_\_](#linflex.Vec3.__mod__)
+    * [\_\_rmod\_\_](#linflex.Vec3.__rmod__)
+    * [\_\_imod\_\_](#linflex.Vec3.__imod__)
+    * [\_\_eq\_\_](#linflex.Vec3.__eq__)
+    * [\_\_ne\_\_](#linflex.Vec3.__ne__)
+    * [\_\_gt\_\_](#linflex.Vec3.__gt__)
+    * [\_\_lt\_\_](#linflex.Vec3.__lt__)
+    * [\_\_ge\_\_](#linflex.Vec3.__ge__)
+    * [\_\_le\_\_](#linflex.Vec3.__le__)
+    * [\_\_copy\_\_](#linflex.Vec3.__copy__)
+    * [\_\_deepcopy\_\_](#linflex.Vec3.__deepcopy__)
+    * [copy](#linflex.Vec3.copy)
+    * [length](#linflex.Vec3.length)
+    * [length\_squared](#linflex.Vec3.length_squared)
+    * [normalized](#linflex.Vec3.normalized)
+    * [lerp](#linflex.Vec3.lerp)
+    * [sign](#linflex.Vec3.sign)
+    * [clamp](#linflex.Vec3.clamp)
+    * [move\_toward](#linflex.Vec3.move_toward)
+    * [distance\_to](#linflex.Vec3.distance_to)
+    * [distance\_squared\_to](#linflex.Vec3.distance_squared_to)
+    * [direction\_to](#linflex.Vec3.direction_to)
+    * [dot](#linflex.Vec3.dot)
+    * [cross](#linflex.Vec3.cross)
+    * [angles](#linflex.Vec3.angles)
+    * [angles\_to](#linflex.Vec3.angles_to)
+    * [rotated\_around\_x](#linflex.Vec3.rotated_around_x)
+    * [rotated\_around\_y](#linflex.Vec3.rotated_around_y)
+    * [rotated\_around\_z](#linflex.Vec3.rotated_around_z)
+    * [rotated](#linflex.Vec3.rotated)
+    * [rotated\_around](#linflex.Vec3.rotated_around)
 
 <a id="linflex"></a>
 
@@ -180,19 +174,7 @@ Includes
 - `Vec2i`
 - `Vec3`
 
-<a id="linflex._annotations"></a>
-
-# Module `linflex._annotations`
-
-<a id="linflex._class_constant"></a>
-
-# Module `linflex._class_constant`
-
-<a id="linflex._numerical_tools"></a>
-
-# Module `linflex._numerical_tools`
-
-<a id="linflex._numerical_tools.lerp"></a>
+<a id="linflex.lerp"></a>
 
 ## `lerp`
 
@@ -217,7 +199,7 @@ Lerp between `start` and `stop` with `weight` ranging from `0` to `1`.
 
 - `float` - Result of the interpolation.
 
-<a id="linflex._numerical_tools.sign"></a>
+<a id="linflex.sign"></a>
 
 ## `sign`
 
@@ -238,7 +220,7 @@ The number `0` will return `0`.
 
   Literal[-1, 0, 1]: Sign.
 
-<a id="linflex._numerical_tools.clamp"></a>
+<a id="linflex.clamp"></a>
 
 ## `clamp`
 
@@ -263,7 +245,7 @@ Return the number clamped between `smallest` and `largest` (inclusive).
 
 - `Number` - Clamped number.
 
-<a id="linflex._numerical_tools.move_toward"></a>
+<a id="linflex.move_toward"></a>
 
 ## `move_toward`
 
@@ -288,11 +270,7 @@ Move toward target number.
 
 - `float` - Point after move.
 
-<a id="linflex._vec2"></a>
-
-# Module `linflex._vec2`
-
-<a id="linflex._vec2.Vec2"></a>
+<a id="linflex.Vec2"></a>
 
 ## Class `Vec2`
 
@@ -306,7 +284,7 @@ Components: `x`, `y`.
 
 Useful for storing position or direction in 2D space.
 
-<a id="linflex._vec2.Vec2.ZERO"></a>
+<a id="linflex.Vec2.ZERO"></a>
 
 ### `Vec2.ZERO`
 
@@ -317,7 +295,7 @@ def ZERO(cls: type[Self]) -> Self
 
 Vector with all components set to `0`.
 
-<a id="linflex._vec2.Vec2.ONE"></a>
+<a id="linflex.Vec2.ONE"></a>
 
 ### `Vec2.ONE`
 
@@ -328,7 +306,7 @@ def ONE(cls: type[Self]) -> Self
 
 Vector with all components set to `1`.
 
-<a id="linflex._vec2.Vec2.INF"></a>
+<a id="linflex.Vec2.INF"></a>
 
 ### `Vec2.INF`
 
@@ -339,7 +317,7 @@ def INF(cls: type[Self]) -> Self
 
 Vector with all components set to `math.inf`.
 
-<a id="linflex._vec2.Vec2.LEFT"></a>
+<a id="linflex.Vec2.LEFT"></a>
 
 ### `Vec2.LEFT`
 
@@ -352,7 +330,7 @@ Left unit vector.
 
 Represents the `left direction`.
 
-<a id="linflex._vec2.Vec2.RIGHT"></a>
+<a id="linflex.Vec2.RIGHT"></a>
 
 ### `Vec2.RIGHT`
 
@@ -365,7 +343,7 @@ Right unit vector.
 
 Represents the `right direction`.
 
-<a id="linflex._vec2.Vec2.UP"></a>
+<a id="linflex.Vec2.UP"></a>
 
 ### `Vec2.UP`
 
@@ -382,7 +360,7 @@ Represents the `up direction`.
 Since `positive Y` points `downward` in this 2D coordinate system,
 the `up direction` is represented by `-Y`.
 
-<a id="linflex._vec2.Vec2.DOWN"></a>
+<a id="linflex.Vec2.DOWN"></a>
 
 ### `Vec2.DOWN`
 
@@ -399,7 +377,7 @@ Represents the `down direction`.
 Since `positive Y` points `downward` in this 2D coordinate system,
 the `down direction` is represented by `+Y`.
 
-<a id="linflex._vec2.Vec2.from_angle"></a>
+<a id="linflex.Vec2.from_angle"></a>
 
 ### `Vec2.from_angle`
 
@@ -419,7 +397,7 @@ Create a direction vector of length 1 from given angle.
 
 - `Self` - Direction vector of length 1.
 
-<a id="linflex._vec2.Vec2.__init__"></a>
+<a id="linflex.Vec2.__init__"></a>
 
 ### `Vec2.__init__`
 
@@ -437,7 +415,7 @@ Initialize vector.
 - `x` _float_ - X component.
 - `y` _float_ - Y component.
 
-<a id="linflex._vec2.Vec2.__reduce__"></a>
+<a id="linflex.Vec2.__reduce__"></a>
 
 ### `Vec2.__reduce__`
 
@@ -447,7 +425,7 @@ def __reduce__() -> tuple[type[Self], tuple[float, float]]
 
 Helper for pickling support.
 
-<a id="linflex._vec2.Vec2.__len__"></a>
+<a id="linflex.Vec2.__len__"></a>
 
 ### `Vec2.__len__`
 
@@ -459,9 +437,9 @@ Return the number of components in the vector.
 
 **Returns**:
 
-- `int` - Number of components (always ´2´).
+- `int` - Number of components (always `2`).
 
-<a id="linflex._vec2.Vec2.__iter__"></a>
+<a id="linflex.Vec2.__iter__"></a>
 
 ### `Vec2.__iter__`
 
@@ -473,9 +451,9 @@ Iterate over the components of the vector.
 
 **Returns**:
 
-- `Iterator[float]` - Iterator over ´x´ and ´y´.
+- `Iterator[float]` - Iterator over `x` and `y`.
 
-<a id="linflex._vec2.Vec2.__getitem__"></a>
+<a id="linflex.Vec2.__getitem__"></a>
 
 ### `Vec2.__getitem__`
 
@@ -487,14 +465,14 @@ Get a component by index.
 
 **Arguments**:
 
-- `item` _int_ - Index (´0´ for ´x´, ´1´ for ´y´).
+- `item` _int_ - Index (`0` for `x`, `1` for `y`).
   
 
 **Returns**:
 
 - `float` - Value of the component.
 
-<a id="linflex._vec2.Vec2.__abs__"></a>
+<a id="linflex.Vec2.__abs__"></a>
 
 ### `Vec2.__abs__`
 
@@ -508,7 +486,7 @@ Return a vector with absolute values of each component.
 
 - `Self` - Vector with absolute values.
 
-<a id="linflex._vec2.Vec2.__round__"></a>
+<a id="linflex.Vec2.__round__"></a>
 
 ### `Vec2.__round__`
 
@@ -527,7 +505,7 @@ Return a vector with each component rounded.
 
 - `Self` - Rounded vector.
 
-<a id="linflex._vec2.Vec2.__floor__"></a>
+<a id="linflex.Vec2.__floor__"></a>
 
 ### `Vec2.__floor__`
 
@@ -541,7 +519,7 @@ Return a vector with each component floored.
 
 - `Self` - Floored vector.
 
-<a id="linflex._vec2.Vec2.__ceil__"></a>
+<a id="linflex.Vec2.__ceil__"></a>
 
 ### `Vec2.__ceil__`
 
@@ -555,7 +533,7 @@ Return a vector with each component ceiled.
 
 - `Self` - Ceiled vector.
 
-<a id="linflex._vec2.Vec2.__neg__"></a>
+<a id="linflex.Vec2.__neg__"></a>
 
 ### `Vec2.__neg__`
 
@@ -569,7 +547,7 @@ Return a vector with each component negated.
 
 - `Vec2` - Negated vector.
 
-<a id="linflex._vec2.Vec2.__add__"></a>
+<a id="linflex.Vec2.__add__"></a>
 
 ### `Vec2.__add__`
 
@@ -588,7 +566,7 @@ Add two vectors.
 
 - `Vec2` - Result of addition.
 
-<a id="linflex._vec2.Vec2.__radd__"></a>
+<a id="linflex.Vec2.__radd__"></a>
 
 ### `Vec2.__radd__`
 
@@ -609,7 +587,7 @@ Adds this vector to another vector or scalar, when this vector is on the right s
 
 - `Vec2` - Result of addition.
 
-<a id="linflex._vec2.Vec2.__iadd__"></a>
+<a id="linflex.Vec2.__iadd__"></a>
 
 ### `Vec2.__iadd__`
 
@@ -628,7 +606,7 @@ In-place add two vectors.
 
 - `Vec2` - Result of addition.
 
-<a id="linflex._vec2.Vec2.__sub__"></a>
+<a id="linflex.Vec2.__sub__"></a>
 
 ### `Vec2.__sub__`
 
@@ -647,7 +625,7 @@ Subtract two vectors.
 
 - `Vec2` - Result of subtraction.
 
-<a id="linflex._vec2.Vec2.__rsub__"></a>
+<a id="linflex.Vec2.__rsub__"></a>
 
 ### `Vec2.__rsub__`
 
@@ -668,7 +646,7 @@ Subtracts this vector from another vector or scalar, when this vector is on the 
 
 - `Vec2` - Result of subtraction.
 
-<a id="linflex._vec2.Vec2.__isub__"></a>
+<a id="linflex.Vec2.__isub__"></a>
 
 ### `Vec2.__isub__`
 
@@ -687,7 +665,7 @@ In-place subtract two vectors.
 
 - `Vec2` - Result of subtraction.
 
-<a id="linflex._vec2.Vec2.__mul__"></a>
+<a id="linflex.Vec2.__mul__"></a>
 
 ### `Vec2.__mul__`
 
@@ -706,7 +684,7 @@ Multiply vector by another vector or scalar.
 
 - `Vec2` - Result of multiplication.
 
-<a id="linflex._vec2.Vec2.__rmul__"></a>
+<a id="linflex.Vec2.__rmul__"></a>
 
 ### `Vec2.__rmul__`
 
@@ -727,7 +705,7 @@ Multiplies another vector or scalar by this vector, when this vector is on the r
 
 - `Vec2` - Result of multiplication.
 
-<a id="linflex._vec2.Vec2.__imul__"></a>
+<a id="linflex.Vec2.__imul__"></a>
 
 ### `Vec2.__imul__`
 
@@ -746,7 +724,7 @@ In-place multiply vector by another vector or scalar.
 
 - `Vec2` - Result of multiplication.
 
-<a id="linflex._vec2.Vec2.__floordiv__"></a>
+<a id="linflex.Vec2.__floordiv__"></a>
 
 ### `Vec2.__floordiv__`
 
@@ -765,7 +743,7 @@ Floor divide vector by another vector or scalar.
 
 - `Vec2` - Result of floor division.
 
-<a id="linflex._vec2.Vec2.__rfloordiv__"></a>
+<a id="linflex.Vec2.__rfloordiv__"></a>
 
 ### `Vec2.__rfloordiv__`
 
@@ -786,7 +764,7 @@ Floor divides another vector or scalar by this vector, when this vector is on th
 
 - `Vec2` - Result of floor division.
 
-<a id="linflex._vec2.Vec2.__ifloordiv__"></a>
+<a id="linflex.Vec2.__ifloordiv__"></a>
 
 ### `Vec2.__ifloordiv__`
 
@@ -805,7 +783,7 @@ In-place floor divide vector by another vector or scalar.
 
 - `Vec2` - Result of floor division.
 
-<a id="linflex._vec2.Vec2.__truediv__"></a>
+<a id="linflex.Vec2.__truediv__"></a>
 
 ### `Vec2.__truediv__`
 
@@ -824,7 +802,7 @@ Divide vector by another vector or scalar.
 
 - `Vec2` - Result of division.
 
-<a id="linflex._vec2.Vec2.__rtruediv__"></a>
+<a id="linflex.Vec2.__rtruediv__"></a>
 
 ### `Vec2.__rtruediv__`
 
@@ -845,7 +823,7 @@ Divides another vector or scalar by this vector, when this vector is on the righ
 
 - `Vec2` - Result of division.
 
-<a id="linflex._vec2.Vec2.__itruediv__"></a>
+<a id="linflex.Vec2.__itruediv__"></a>
 
 ### `Vec2.__itruediv__`
 
@@ -864,7 +842,7 @@ In-place divide vector by another vector or scalar.
 
 - `Vec2` - Result of division.
 
-<a id="linflex._vec2.Vec2.__mod__"></a>
+<a id="linflex.Vec2.__mod__"></a>
 
 ### `Vec2.__mod__`
 
@@ -883,7 +861,7 @@ Modulo vector by another vector or scalar.
 
 - `Vec2` - Result of modulo.
 
-<a id="linflex._vec2.Vec2.__rmod__"></a>
+<a id="linflex.Vec2.__rmod__"></a>
 
 ### `Vec2.__rmod__`
 
@@ -904,7 +882,7 @@ Computes the modulo of another vector or scalar by this vector, when this vector
 
 - `Vec2` - Result of modulo.
 
-<a id="linflex._vec2.Vec2.__imod__"></a>
+<a id="linflex.Vec2.__imod__"></a>
 
 ### `Vec2.__imod__`
 
@@ -923,7 +901,7 @@ In-place modulo vector by another vector or scalar.
 
 - `Vec2` - Result of modulo.
 
-<a id="linflex._vec2.Vec2.__eq__"></a>
+<a id="linflex.Vec2.__eq__"></a>
 
 ### `Vec2.__eq__`
 
@@ -942,7 +920,7 @@ Check if two vectors are equal.
 
 - `bool` - True if equal, False otherwise.
 
-<a id="linflex._vec2.Vec2.__ne__"></a>
+<a id="linflex.Vec2.__ne__"></a>
 
 ### `Vec2.__ne__`
 
@@ -961,7 +939,7 @@ Check if two vectors are not equal.
 
 - `bool` - True if not equal, False otherwise.
 
-<a id="linflex._vec2.Vec2.__gt__"></a>
+<a id="linflex.Vec2.__gt__"></a>
 
 ### `Vec2.__gt__`
 
@@ -980,7 +958,7 @@ Check if this vector is greater than another.
 
 - `bool` - True if greater, False otherwise.
 
-<a id="linflex._vec2.Vec2.__lt__"></a>
+<a id="linflex.Vec2.__lt__"></a>
 
 ### `Vec2.__lt__`
 
@@ -999,7 +977,7 @@ Check if this vector is less than another.
 
 - `bool` - True if less, False otherwise.
 
-<a id="linflex._vec2.Vec2.__ge__"></a>
+<a id="linflex.Vec2.__ge__"></a>
 
 ### `Vec2.__ge__`
 
@@ -1018,7 +996,7 @@ Check if this vector is greater than or equal to another.
 
 - `bool` - True if greater or equal, False otherwise.
 
-<a id="linflex._vec2.Vec2.__le__"></a>
+<a id="linflex.Vec2.__le__"></a>
 
 ### `Vec2.__le__`
 
@@ -1037,7 +1015,7 @@ Check if this vector is less than or equal to another.
 
 - `bool` - True if less or equal, False otherwise.
 
-<a id="linflex._vec2.Vec2.__copy__"></a>
+<a id="linflex.Vec2.__copy__"></a>
 
 ### `Vec2.__copy__`
 
@@ -1051,7 +1029,7 @@ Return a copy of the vector.
 
 - `Self` - A new copy.
 
-<a id="linflex._vec2.Vec2.__deepcopy__"></a>
+<a id="linflex.Vec2.__deepcopy__"></a>
 
 ### `Vec2.__deepcopy__`
 
@@ -1070,7 +1048,7 @@ Return a deep copy of the vector.
 
 - `Self` - A new deep copy.
 
-<a id="linflex._vec2.Vec2.copy"></a>
+<a id="linflex.Vec2.copy"></a>
 
 ### `Vec2.copy`
 
@@ -1084,7 +1062,7 @@ Return a vector copy.
 
 - `Self` - A new copy.
 
-<a id="linflex._vec2.Vec2.length"></a>
+<a id="linflex.Vec2.length"></a>
 
 ### `Vec2.length`
 
@@ -1098,7 +1076,7 @@ Return the length of the vector.
 
 - `float` - Length.
 
-<a id="linflex._vec2.Vec2.length_squared"></a>
+<a id="linflex.Vec2.length_squared"></a>
 
 ### `Vec2.length_squared`
 
@@ -1112,7 +1090,7 @@ Return the length of the vector squared.
 
 - `float` - Length squared.
 
-<a id="linflex._vec2.Vec2.distance_to"></a>
+<a id="linflex.Vec2.distance_to"></a>
 
 ### `Vec2.distance_to`
 
@@ -1131,7 +1109,7 @@ Return the relative distance to the other point.
 
 - `float` - Distance.
 
-<a id="linflex._vec2.Vec2.distance_squared_to"></a>
+<a id="linflex.Vec2.distance_squared_to"></a>
 
 ### `Vec2.distance_squared_to`
 
@@ -1150,7 +1128,7 @@ Return the relative distance to the other point, squared.
 
 - `float` - Distance squared.
 
-<a id="linflex._vec2.Vec2.normalized"></a>
+<a id="linflex.Vec2.normalized"></a>
 
 ### `Vec2.normalized`
 
@@ -1164,7 +1142,7 @@ Return a vector with length of 1, still with same direction.
 
 - `Vec2` - Normalized vector.
 
-<a id="linflex._vec2.Vec2.dot"></a>
+<a id="linflex.Vec2.dot"></a>
 
 ### `Vec2.dot`
 
@@ -1183,7 +1161,7 @@ Return the dot product between two 2D vectors.
 
 - `float` - Dot product.
 
-<a id="linflex._vec2.Vec2.cross"></a>
+<a id="linflex.Vec2.cross"></a>
 
 ### `Vec2.cross`
 
@@ -1202,7 +1180,7 @@ Cross product interpreted in 2D space, like defined in the `Godot Game Engine`.
 
 - `float` - Cross product.
 
-<a id="linflex._vec2.Vec2.direction_to"></a>
+<a id="linflex.Vec2.direction_to"></a>
 
 ### `Vec2.direction_to`
 
@@ -1221,7 +1199,7 @@ Return the direction to the other point.
 
 - `Vec2` - Direction.
 
-<a id="linflex._vec2.Vec2.angle"></a>
+<a id="linflex.Vec2.angle"></a>
 
 ### `Vec2.angle`
 
@@ -1235,7 +1213,7 @@ Return the angle (measured in radians), using `atan2`.
 
 - `float` - Angle given in radians.
 
-<a id="linflex._vec2.Vec2.angle_to"></a>
+<a id="linflex.Vec2.angle_to"></a>
 
 ### `Vec2.angle_to`
 
@@ -1254,7 +1232,7 @@ Return the angle (measured in radians) to the other point.
 
 - `float` - Angle given in radians.
 
-<a id="linflex._vec2.Vec2.lerp"></a>
+<a id="linflex.Vec2.lerp"></a>
 
 ### `Vec2.lerp`
 
@@ -1277,7 +1255,7 @@ Lerp towards vector `target` with `weight` ranging from 0 to 1.
 
 - `Vec2` - Vector after performing interpolation.
 
-<a id="linflex._vec2.Vec2.sign"></a>
+<a id="linflex.Vec2.sign"></a>
 
 ### `Vec2.sign`
 
@@ -1291,7 +1269,7 @@ Return a Vec2 with each component being the sign of the vector.
 
 - `Vec2` - Vector with signed components.
 
-<a id="linflex._vec2.Vec2.clamp"></a>
+<a id="linflex.Vec2.clamp"></a>
 
 ### `Vec2.clamp`
 
@@ -1314,7 +1292,7 @@ Return a new clamped vector.
 
 - `Vec2` - Vector clamped.
 
-<a id="linflex._vec2.Vec2.move_toward"></a>
+<a id="linflex.Vec2.move_toward"></a>
 
 ### `Vec2.move_toward`
 
@@ -1337,7 +1315,7 @@ Move toward a vector, from a vector, with given change.
 
 - `Vec2` - New vector moved.
 
-<a id="linflex._vec2.Vec2.rotated"></a>
+<a id="linflex.Vec2.rotated"></a>
 
 ### `Vec2.rotated`
 
@@ -1356,7 +1334,7 @@ Return a vector rotated clockwise by `angle` given in radians.
 
 - `Vec2` - Rotated vector.
 
-<a id="linflex._vec2.Vec2.rotated_around"></a>
+<a id="linflex.Vec2.rotated_around"></a>
 
 ### `Vec2.rotated_around`
 
@@ -1379,11 +1357,7 @@ Return a vector rotated by `angle` given in radians, around `point`.
 
 - `Vec2` - Vector rotated around `point`.
 
-<a id="linflex._vec2i"></a>
-
-# Module `linflex._vec2i`
-
-<a id="linflex._vec2i.Vec2i"></a>
+<a id="linflex.Vec2i"></a>
 
 ## Class `Vec2i`
 
@@ -1397,7 +1371,7 @@ Components: `x`, `y`, only type `int`.
 
 Useful for storing whole numbers in 2D space.
 
-<a id="linflex._vec2i.Vec2i.from_angle"></a>
+<a id="linflex.Vec2i.from_angle"></a>
 
 ### `Vec2i.from_angle`
 
@@ -1420,7 +1394,7 @@ Formulas used: `x = sign(cos(angle))` and `y = sign(sin(angle))`.
 
 - `Self` - Snapped direction vector of length `1`.
 
-<a id="linflex._vec2i.Vec2i.__init__"></a>
+<a id="linflex.Vec2i.__init__"></a>
 
 ### `Vec2i.__init__`
 
@@ -1438,7 +1412,7 @@ Initialize integer vector.
 - `x` _int_ - X component.
 - `y` _int_ - Y component.
 
-<a id="linflex._vec2i.Vec2i.__add__"></a>
+<a id="linflex.Vec2i.__add__"></a>
 
 ### `Vec2i.__add__`
 
@@ -1457,7 +1431,7 @@ Add two vectors.
 
   Vec2i | Vec2: Result of addition.
 
-<a id="linflex._vec2i.Vec2i.__iadd__"></a>
+<a id="linflex.Vec2i.__iadd__"></a>
 
 ### `Vec2i.__iadd__`
 
@@ -1476,7 +1450,7 @@ In-place add two integer vectors.
 
 - `Vec2i` - Result of addition.
 
-<a id="linflex._vec2i.Vec2i.__sub__"></a>
+<a id="linflex.Vec2i.__sub__"></a>
 
 ### `Vec2i.__sub__`
 
@@ -1495,7 +1469,7 @@ Subtract two vectors.
 
   Vec2i | Vec2: Result of subtraction.
 
-<a id="linflex._vec2i.Vec2i.__isub__"></a>
+<a id="linflex.Vec2i.__isub__"></a>
 
 ### `Vec2i.__isub__`
 
@@ -1514,7 +1488,7 @@ In-place subtract two integer vectors.
 
 - `Vec2i` - Result of subtraction.
 
-<a id="linflex._vec2i.Vec2i.__mul__"></a>
+<a id="linflex.Vec2i.__mul__"></a>
 
 ### `Vec2i.__mul__`
 
@@ -1533,7 +1507,7 @@ Multiply vector by another vector or scalar.
 
   Vec2i | Vec2: Result of multiplication.
 
-<a id="linflex._vec2i.Vec2i.__imul__"></a>
+<a id="linflex.Vec2i.__imul__"></a>
 
 ### `Vec2i.__imul__`
 
@@ -1552,7 +1526,7 @@ In-place multiply two integer vectors.
 
 - `Vec2i` - Result of multiplication.
 
-<a id="linflex._vec2i.Vec2i.__floordiv__"></a>
+<a id="linflex.Vec2i.__floordiv__"></a>
 
 ### `Vec2i.__floordiv__`
 
@@ -1571,7 +1545,7 @@ Floor divide vector by another vector or scalar.
 
   Vec2i | Vec2: Result of floor division.
 
-<a id="linflex._vec2i.Vec2i.__ifloordiv__"></a>
+<a id="linflex.Vec2i.__ifloordiv__"></a>
 
 ### `Vec2i.__ifloordiv__`
 
@@ -1590,7 +1564,7 @@ In-place floor divide two integer vectors.
 
 - `Vec2i` - Result of floor division.
 
-<a id="linflex._vec2i.Vec2i.__truediv__"></a>
+<a id="linflex.Vec2i.__truediv__"></a>
 
 ### `Vec2i.__truediv__`
 
@@ -1609,7 +1583,7 @@ Divide vector by another vector or scalar.
 
   Vec2i | Vec2: Result of division.
 
-<a id="linflex._vec2i.Vec2i.__itruediv__"></a>
+<a id="linflex.Vec2i.__itruediv__"></a>
 
 ### `Vec2i.__itruediv__`
 
@@ -1628,7 +1602,7 @@ In-place divide two integer vectors.
 
 - `Vec2i` - Result of division.
 
-<a id="linflex._vec2i.Vec2i.__mod__"></a>
+<a id="linflex.Vec2i.__mod__"></a>
 
 ### `Vec2i.__mod__`
 
@@ -1647,7 +1621,7 @@ Modulo vector by another vector or scalar.
 
   Vec2i | Vec2: Result of modulo.
 
-<a id="linflex._vec2i.Vec2i.__imod__"></a>
+<a id="linflex.Vec2i.__imod__"></a>
 
 ### `Vec2i.__imod__`
 
@@ -1666,11 +1640,7 @@ In-place modulo two integer vectors.
 
 - `Vec2i` - Result of modulo.
 
-<a id="linflex._vec3"></a>
-
-# Module `linflex._vec3`
-
-<a id="linflex._vec3.Vec3"></a>
+<a id="linflex.Vec3"></a>
 
 ## Class `Vec3`
 
@@ -1684,7 +1654,7 @@ Components: `x`, `y`, `z`.
 
 Useful for storing position or direction in 3D space.
 
-<a id="linflex._vec3.Vec3.ZERO"></a>
+<a id="linflex.Vec3.ZERO"></a>
 
 ### `Vec3.ZERO`
 
@@ -1695,7 +1665,7 @@ def ZERO(cls: type[Self]) -> Self
 
 Vector with all components set to `0`.
 
-<a id="linflex._vec3.Vec3.ONE"></a>
+<a id="linflex.Vec3.ONE"></a>
 
 ### `Vec3.ONE`
 
@@ -1706,7 +1676,7 @@ def ONE(cls: type[Self]) -> Self
 
 Vector with all components set to `1`.
 
-<a id="linflex._vec3.Vec3.INF"></a>
+<a id="linflex.Vec3.INF"></a>
 
 ### `Vec3.INF`
 
@@ -1717,7 +1687,7 @@ def INF(cls: type[Self]) -> Self
 
 Vector with all components set to `math.inf`.
 
-<a id="linflex._vec3.Vec3.LEFT"></a>
+<a id="linflex.Vec3.LEFT"></a>
 
 ### `Vec3.LEFT`
 
@@ -1730,7 +1700,7 @@ Left unit vector.
 
 Represents both local direction left, and the global direction west.
 
-<a id="linflex._vec3.Vec3.RIGHT"></a>
+<a id="linflex.Vec3.RIGHT"></a>
 
 ### `Vec3.RIGHT`
 
@@ -1743,7 +1713,7 @@ Right unit vector.
 
 Represents both local direction right, and global direction east.
 
-<a id="linflex._vec3.Vec3.UP"></a>
+<a id="linflex.Vec3.UP"></a>
 
 ### `Vec3.UP`
 
@@ -1756,7 +1726,7 @@ Up unit vector.
 
 Represents up direction.
 
-<a id="linflex._vec3.Vec3.DOWN"></a>
+<a id="linflex.Vec3.DOWN"></a>
 
 ### `Vec3.DOWN`
 
@@ -1769,7 +1739,7 @@ Down unit vector.
 
 Represents down direction.
 
-<a id="linflex._vec3.Vec3.FORWARD"></a>
+<a id="linflex.Vec3.FORWARD"></a>
 
 ### `Vec3.FORWARD`
 
@@ -1782,7 +1752,7 @@ Forward unit vector.
 
 Represents both local direction forward, and global direction north.
 
-<a id="linflex._vec3.Vec3.BACK"></a>
+<a id="linflex.Vec3.BACK"></a>
 
 ### `Vec3.BACK`
 
@@ -1795,7 +1765,7 @@ Back/backward unit vector.
 
 Represents local direction back/backwards, and global direction south.
 
-<a id="linflex._vec3.Vec3.from_angles"></a>
+<a id="linflex.Vec3.from_angles"></a>
 
 ### `Vec3.from_angles`
 
@@ -1815,7 +1785,7 @@ Create a direction vector of length `1` from given angles.
 
 - `Self` - Direction vector of length `1`.
 
-<a id="linflex._vec3.Vec3.__init__"></a>
+<a id="linflex.Vec3.__init__"></a>
 
 ### `Vec3.__init__`
 
@@ -1835,7 +1805,7 @@ Initialize vector.
 - `y` _float_ - Y component.
 - `z` _float_ - Z component.
 
-<a id="linflex._vec3.Vec3.__reduce__"></a>
+<a id="linflex.Vec3.__reduce__"></a>
 
 ### `Vec3.__reduce__`
 
@@ -1845,7 +1815,7 @@ def __reduce__() -> tuple[type[Self], tuple[float, float]]
 
 Helper for pickling support.
 
-<a id="linflex._vec3.Vec3.__len__"></a>
+<a id="linflex.Vec3.__len__"></a>
 
 ### `Vec3.__len__`
 
@@ -1859,7 +1829,7 @@ Return the number of components in the vector.
 
 - `int` - Number of components (always `3`).
 
-<a id="linflex._vec3.Vec3.__iter__"></a>
+<a id="linflex.Vec3.__iter__"></a>
 
 ### `Vec3.__iter__`
 
@@ -1873,7 +1843,7 @@ Iterate over the components of the vector.
 
 - `Iterator[float]` - Iterator over `x`, `y`, and `z`.
 
-<a id="linflex._vec3.Vec3.__getitem__"></a>
+<a id="linflex.Vec3.__getitem__"></a>
 
 ### `Vec3.__getitem__`
 
@@ -1892,7 +1862,7 @@ Get a component by index.
 
 - `float` - Value of the component.
 
-<a id="linflex._vec3.Vec3.__repr__"></a>
+<a id="linflex.Vec3.__repr__"></a>
 
 ### `Vec3.__repr__`
 
@@ -1906,7 +1876,7 @@ Create representation.
 
 - `str` - Representation containing the `x`, `y`, and `z` components.
 
-<a id="linflex._vec3.Vec3.__str__"></a>
+<a id="linflex.Vec3.__str__"></a>
 
 ### `Vec3.__str__`
 
@@ -1920,7 +1890,7 @@ Create string representation.
 
 - `str` - Representation containing the `x`, `y`, and `z` components.
 
-<a id="linflex._vec3.Vec3.__bool__"></a>
+<a id="linflex.Vec3.__bool__"></a>
 
 ### `Vec3.__bool__`
 
@@ -1934,7 +1904,7 @@ Return whether `x`, `y`, or `z` is not zero.
 
 - `bool` - Truthiness.
 
-<a id="linflex._vec3.Vec3.__abs__"></a>
+<a id="linflex.Vec3.__abs__"></a>
 
 ### `Vec3.__abs__`
 
@@ -1948,7 +1918,7 @@ Return a vector with absolute values of each component.
 
 - `Self` - Vector with absolute values.
 
-<a id="linflex._vec3.Vec3.__round__"></a>
+<a id="linflex.Vec3.__round__"></a>
 
 ### `Vec3.__round__`
 
@@ -1967,7 +1937,7 @@ Return a vector with each component rounded.
 
 - `Self` - Rounded vector.
 
-<a id="linflex._vec3.Vec3.__floor__"></a>
+<a id="linflex.Vec3.__floor__"></a>
 
 ### `Vec3.__floor__`
 
@@ -1981,7 +1951,7 @@ Return a vector with each component floored.
 
 - `Self` - Floored vector.
 
-<a id="linflex._vec3.Vec3.__ceil__"></a>
+<a id="linflex.Vec3.__ceil__"></a>
 
 ### `Vec3.__ceil__`
 
@@ -1995,7 +1965,7 @@ Return a vector with each component ceiled.
 
 - `Self` - Ceiled vector.
 
-<a id="linflex._vec3.Vec3.__add__"></a>
+<a id="linflex.Vec3.__add__"></a>
 
 ### `Vec3.__add__`
 
@@ -2014,7 +1984,7 @@ Add two vectors.
 
 - `Vec3` - Result of addition.
 
-<a id="linflex._vec3.Vec3.__radd__"></a>
+<a id="linflex.Vec3.__radd__"></a>
 
 ### `Vec3.__radd__`
 
@@ -2035,7 +2005,7 @@ Adds this vector to another vector or scalar, when this vector is on the right s
 
 - `Vec3` - Result of addition.
 
-<a id="linflex._vec3.Vec3.__iadd__"></a>
+<a id="linflex.Vec3.__iadd__"></a>
 
 ### `Vec3.__iadd__`
 
@@ -2054,7 +2024,7 @@ In-place add two vectors.
 
 - `Vec3` - Result of addition.
 
-<a id="linflex._vec3.Vec3.__sub__"></a>
+<a id="linflex.Vec3.__sub__"></a>
 
 ### `Vec3.__sub__`
 
@@ -2073,7 +2043,7 @@ Subtract two vectors.
 
 - `Vec3` - Result of subtraction.
 
-<a id="linflex._vec3.Vec3.__rsub__"></a>
+<a id="linflex.Vec3.__rsub__"></a>
 
 ### `Vec3.__rsub__`
 
@@ -2094,7 +2064,7 @@ Subtracts this vector from another vector or scalar, when this vector is on the 
 
 - `Vec3` - Result of subtraction.
 
-<a id="linflex._vec3.Vec3.__isub__"></a>
+<a id="linflex.Vec3.__isub__"></a>
 
 ### `Vec3.__isub__`
 
@@ -2113,7 +2083,7 @@ In-place subtract two vectors.
 
 - `Vec3` - Result of subtraction.
 
-<a id="linflex._vec3.Vec3.__mul__"></a>
+<a id="linflex.Vec3.__mul__"></a>
 
 ### `Vec3.__mul__`
 
@@ -2132,7 +2102,7 @@ Multiply vector by another vector or scalar.
 
 - `Vec3` - Result of multiplication.
 
-<a id="linflex._vec3.Vec3.__rmul__"></a>
+<a id="linflex.Vec3.__rmul__"></a>
 
 ### `Vec3.__rmul__`
 
@@ -2153,7 +2123,7 @@ Multiplies another vector or scalar by this vector, when this vector is on the r
 
 - `Vec3` - Result of multiplication.
 
-<a id="linflex._vec3.Vec3.__imul__"></a>
+<a id="linflex.Vec3.__imul__"></a>
 
 ### `Vec3.__imul__`
 
@@ -2172,7 +2142,7 @@ In-place multiply vector by another vector or scalar.
 
 - `Vec3` - Result of multiplication.
 
-<a id="linflex._vec3.Vec3.__floordiv__"></a>
+<a id="linflex.Vec3.__floordiv__"></a>
 
 ### `Vec3.__floordiv__`
 
@@ -2191,7 +2161,7 @@ Floor divide vector by another vector or scalar.
 
 - `Vec3` - Result of floor division.
 
-<a id="linflex._vec3.Vec3.__rfloordiv__"></a>
+<a id="linflex.Vec3.__rfloordiv__"></a>
 
 ### `Vec3.__rfloordiv__`
 
@@ -2212,7 +2182,7 @@ Floor divides another vector or scalar by this vector, when this vector is on th
 
 - `Vec3` - Result of floor division.
 
-<a id="linflex._vec3.Vec3.__ifloordiv__"></a>
+<a id="linflex.Vec3.__ifloordiv__"></a>
 
 ### `Vec3.__ifloordiv__`
 
@@ -2231,7 +2201,7 @@ In-place floor divide vector by another vector or scalar.
 
 - `Vec3` - Result of floor division.
 
-<a id="linflex._vec3.Vec3.__truediv__"></a>
+<a id="linflex.Vec3.__truediv__"></a>
 
 ### `Vec3.__truediv__`
 
@@ -2250,7 +2220,7 @@ Divide vector by another vector or scalar.
 
 - `Vec3` - Result of division.
 
-<a id="linflex._vec3.Vec3.__rtruediv__"></a>
+<a id="linflex.Vec3.__rtruediv__"></a>
 
 ### `Vec3.__rtruediv__`
 
@@ -2271,7 +2241,7 @@ Divides another vector or scalar by this vector, when this vector is on the righ
 
 - `Vec3` - Result of division.
 
-<a id="linflex._vec3.Vec3.__itruediv__"></a>
+<a id="linflex.Vec3.__itruediv__"></a>
 
 ### `Vec3.__itruediv__`
 
@@ -2290,7 +2260,7 @@ In-place divide vector by another vector or scalar.
 
 - `Vec3` - Result of division.
 
-<a id="linflex._vec3.Vec3.__mod__"></a>
+<a id="linflex.Vec3.__mod__"></a>
 
 ### `Vec3.__mod__`
 
@@ -2309,7 +2279,7 @@ Modulo vector by another vector or scalar.
 
 - `Vec3` - Result of modulo.
 
-<a id="linflex._vec3.Vec3.__rmod__"></a>
+<a id="linflex.Vec3.__rmod__"></a>
 
 ### `Vec3.__rmod__`
 
@@ -2330,7 +2300,7 @@ Computes the modulo of another vector or scalar by this vector, when this vector
 
 - `Vec3` - Result of modulo.
 
-<a id="linflex._vec3.Vec3.__imod__"></a>
+<a id="linflex.Vec3.__imod__"></a>
 
 ### `Vec3.__imod__`
 
@@ -2349,7 +2319,7 @@ In-place modulo vector by another vector or scalar.
 
 - `Vec3` - Result of modulo.
 
-<a id="linflex._vec3.Vec3.__eq__"></a>
+<a id="linflex.Vec3.__eq__"></a>
 
 ### `Vec3.__eq__`
 
@@ -2368,7 +2338,7 @@ Check if two vectors are equal.
 
 - `bool` - True if equal, False otherwise.
 
-<a id="linflex._vec3.Vec3.__ne__"></a>
+<a id="linflex.Vec3.__ne__"></a>
 
 ### `Vec3.__ne__`
 
@@ -2387,7 +2357,7 @@ Check if two vectors are not equal.
 
 - `bool` - True if not equal, False otherwise.
 
-<a id="linflex._vec3.Vec3.__gt__"></a>
+<a id="linflex.Vec3.__gt__"></a>
 
 ### `Vec3.__gt__`
 
@@ -2406,7 +2376,7 @@ Check if this vector is greater than another.
 
 - `bool` - True if greater, False otherwise.
 
-<a id="linflex._vec3.Vec3.__lt__"></a>
+<a id="linflex.Vec3.__lt__"></a>
 
 ### `Vec3.__lt__`
 
@@ -2425,7 +2395,7 @@ Check if this vector is less than another.
 
 - `bool` - True if less, False otherwise.
 
-<a id="linflex._vec3.Vec3.__ge__"></a>
+<a id="linflex.Vec3.__ge__"></a>
 
 ### `Vec3.__ge__`
 
@@ -2444,7 +2414,7 @@ Check if this vector is greater than or equal to another.
 
 - `bool` - True if greater or equal, False otherwise.
 
-<a id="linflex._vec3.Vec3.__le__"></a>
+<a id="linflex.Vec3.__le__"></a>
 
 ### `Vec3.__le__`
 
@@ -2463,7 +2433,7 @@ Check if this vector is less than or equal to another.
 
 - `bool` - True if less or equal, False otherwise.
 
-<a id="linflex._vec3.Vec3.__copy__"></a>
+<a id="linflex.Vec3.__copy__"></a>
 
 ### `Vec3.__copy__`
 
@@ -2477,7 +2447,7 @@ Return a copy of the vector.
 
 - `Self` - A new copy.
 
-<a id="linflex._vec3.Vec3.__deepcopy__"></a>
+<a id="linflex.Vec3.__deepcopy__"></a>
 
 ### `Vec3.__deepcopy__`
 
@@ -2496,7 +2466,7 @@ Return a deep copy of the vector.
 
 - `Self` - A new deep copy.
 
-<a id="linflex._vec3.Vec3.copy"></a>
+<a id="linflex.Vec3.copy"></a>
 
 ### `Vec3.copy`
 
@@ -2510,7 +2480,7 @@ Return a vector copy.
 
 - `Self` - A new copy.
 
-<a id="linflex._vec3.Vec3.length"></a>
+<a id="linflex.Vec3.length"></a>
 
 ### `Vec3.length`
 
@@ -2524,7 +2494,7 @@ Return the length of the vector.
 
 - `float` - Length.
 
-<a id="linflex._vec3.Vec3.length_squared"></a>
+<a id="linflex.Vec3.length_squared"></a>
 
 ### `Vec3.length_squared`
 
@@ -2538,7 +2508,7 @@ Return the length of the vector squared.
 
 - `float` - Length squared.
 
-<a id="linflex._vec3.Vec3.normalized"></a>
+<a id="linflex.Vec3.normalized"></a>
 
 ### `Vec3.normalized`
 
@@ -2552,7 +2522,7 @@ Return a vector with length of `1`, still with same direction.
 
 - `Vec3` - Normalized vector.
 
-<a id="linflex._vec3.Vec3.lerp"></a>
+<a id="linflex.Vec3.lerp"></a>
 
 ### `Vec3.lerp`
 
@@ -2575,7 +2545,7 @@ Lerp towards vector `target` with `weight` ranging from `0` to `1`.
 
 - `Vec3` - Vector after performing interpolation.
 
-<a id="linflex._vec3.Vec3.sign"></a>
+<a id="linflex.Vec3.sign"></a>
 
 ### `Vec3.sign`
 
@@ -2589,7 +2559,7 @@ Return a Vec3 with each component being the sign of the vector.
 
 - `Vec3` - Vector with signed components.
 
-<a id="linflex._vec3.Vec3.clamp"></a>
+<a id="linflex.Vec3.clamp"></a>
 
 ### `Vec3.clamp`
 
@@ -2612,7 +2582,7 @@ Return a new clamped vector.
 
 - `Vec3` - Vector clamped.
 
-<a id="linflex._vec3.Vec3.move_toward"></a>
+<a id="linflex.Vec3.move_toward"></a>
 
 ### `Vec3.move_toward`
 
@@ -2635,7 +2605,7 @@ Move toward a vector, from a vector, with given change.
 
 - `Vec3` - New vector moved.
 
-<a id="linflex._vec3.Vec3.distance_to"></a>
+<a id="linflex.Vec3.distance_to"></a>
 
 ### `Vec3.distance_to`
 
@@ -2654,7 +2624,7 @@ Return the relative distance to the target point.
 
 - `float` - Distance.
 
-<a id="linflex._vec3.Vec3.distance_squared_to"></a>
+<a id="linflex.Vec3.distance_squared_to"></a>
 
 ### `Vec3.distance_squared_to`
 
@@ -2673,7 +2643,7 @@ Return the relative distance to the target point, squared.
 
 - `float` - Distance squared.
 
-<a id="linflex._vec3.Vec3.direction_to"></a>
+<a id="linflex.Vec3.direction_to"></a>
 
 ### `Vec3.direction_to`
 
@@ -2692,7 +2662,7 @@ Return the direction to the target point.
 
 - `Vec3` - Direction.
 
-<a id="linflex._vec3.Vec3.dot"></a>
+<a id="linflex.Vec3.dot"></a>
 
 ### `Vec3.dot`
 
@@ -2711,7 +2681,7 @@ Return the dot product between two 3D vectors.
 
 - `float` - Dot product.
 
-<a id="linflex._vec3.Vec3.cross"></a>
+<a id="linflex.Vec3.cross"></a>
 
 ### `Vec3.cross`
 
@@ -2730,7 +2700,7 @@ Return the cross product between two 3D vectors.
 
 - `Vec3` - Cross product.
 
-<a id="linflex._vec3.Vec3.angles"></a>
+<a id="linflex.Vec3.angles"></a>
 
 ### `Vec3.angles`
 
@@ -2744,7 +2714,7 @@ Return the angles (pitch, yaw, roll) of the vector.
 
 - `Vec3` - Angles in radians.
 
-<a id="linflex._vec3.Vec3.angles_to"></a>
+<a id="linflex.Vec3.angles_to"></a>
 
 ### `Vec3.angles_to`
 
@@ -2763,7 +2733,7 @@ Return the angles to the target point.
 
 - `Vec3` - Angles in radians.
 
-<a id="linflex._vec3.Vec3.rotated_around_x"></a>
+<a id="linflex.Vec3.rotated_around_x"></a>
 
 ### `Vec3.rotated_around_x`
 
@@ -2782,7 +2752,7 @@ Return a vector rotated around the `X` axis by `angle` radians.
 
 - `Vec3` - Rotated vector.
 
-<a id="linflex._vec3.Vec3.rotated_around_y"></a>
+<a id="linflex.Vec3.rotated_around_y"></a>
 
 ### `Vec3.rotated_around_y`
 
@@ -2801,7 +2771,7 @@ Return a vector rotated around the `Y` axis by `angle` radians.
 
 - `Vec3` - Rotated vector.
 
-<a id="linflex._vec3.Vec3.rotated_around_z"></a>
+<a id="linflex.Vec3.rotated_around_z"></a>
 
 ### `Vec3.rotated_around_z`
 
@@ -2820,7 +2790,7 @@ Return a vector rotated around the `Z` axis by `angle` radians.
 
 - `Vec3` - Rotated vector.
 
-<a id="linflex._vec3.Vec3.rotated"></a>
+<a id="linflex.Vec3.rotated"></a>
 
 ### `Vec3.rotated`
 
@@ -2839,7 +2809,7 @@ Return a vector rotated by the given angles around each axis.
 
 - `Vec3` - Rotated vector.
 
-<a id="linflex._vec3.Vec3.rotated_around"></a>
+<a id="linflex.Vec3.rotated_around"></a>
 
 ### `Vec3.rotated_around`
 

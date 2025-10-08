@@ -276,7 +276,7 @@ requires-dist = [{ name = "typing-extensions", marker = "python_full_version < '
 [package.metadata.requires-dev]
 dev = [
     { name = "pydoc-markdown", specifier = "~=4.8" },
-    { name = "pydoc-markdown-havsalt", specifier = "~=0.1.1" },
+    { name = "pydoc-markdown-havsalt", specifier = "~=0.1.3" },
     { name = "pytest", specifier = "~=8.4" },
     { name = "ruff", specifier = "~=0.13.0" },
 ]
@@ -469,14 +469,14 @@ wheels = [
 
 [[package]]
 name = "pydoc-markdown-havsalt"
-version = "0.1.1"
+version = "0.1.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pydoc-markdown" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f9/1e/790061d95ede8ea2f105155cf80cf2ed98bf285da9bbb123124ffd7d2fb9/pydoc_markdown_havsalt-0.1.1.tar.gz", hash = "sha256:7c376236e31a4c9fb2b0947f4b760fc5a5e378540b24ce2de26f8e81c40a5096", size = 40463, upload-time = "2025-07-16T23:04:42.292Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/e3/39/844a79064e3f738b8a5fdf2a63201c194e099b542f551f543b6186e26f4b/pydoc_markdown_havsalt-0.1.3.tar.gz", hash = "sha256:8f6e15616b4d1fd36264628e46cc9e18c4d8a5c4a23f30e110dd45d575633309", size = 42831, upload-time = "2025-10-08T08:57:04.811Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/4f/2e/6cae981ba927711294f0d5e1f71c4789bff9e48c0de5a465c45778a31cb7/pydoc_markdown_havsalt-0.1.1-py3-none-any.whl", hash = "sha256:a50ca00e902dc711122afb953940176b202b7d63240110c075c33253040faaf1", size = 4825, upload-time = "2025-07-16T23:04:41.045Z" },
+    { url = "https://files.pythonhosted.org/packages/8b/fe/8e7f93c22f8a05fee2f42a7cfb9cf5000e59ec93083844838823515ea38b/pydoc_markdown_havsalt-0.1.3-py3-none-any.whl", hash = "sha256:eb27e9773b20023269fce5bcd2ea831653f45660ba1f0b0a062c7b5b1f0ed956", size = 6717, upload-time = "2025-10-08T08:57:04.016Z" },
 ]
 
 [[package]]
