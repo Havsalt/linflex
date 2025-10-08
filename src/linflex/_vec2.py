@@ -107,7 +107,7 @@ class Vec2:
         """Return the number of components in the vector.
 
         Returns:
-            int: Number of components (always ´2´).
+            int: Number of components (always `2`).
         """
         return 2
 
@@ -115,7 +115,7 @@ class Vec2:
         """Iterate over the components of the vector.
 
         Returns:
-            Iterator[float]: Iterator over ´x´ and ´y´.
+            Iterator[float]: Iterator over `x` and `y`.
         """
         return iter((self.x, self.y))
 
@@ -123,7 +123,7 @@ class Vec2:
         """Get a component by index.
 
         Args:
-            item (int): Index (´0´ for ´x´, ´1´ for ´y´).
+            item (int): Index (`0` for `x`, `1` for `y`).
 
         Returns:
             float: Value of the component.
