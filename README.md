@@ -4,7 +4,11 @@ A linear algebra package written in Python
 
 ## Installation
 
-Install using either `pip` or `rye`:
+Install using your preferred Python package manager:
+
+```bash
+uv pip install linflex
+```
 
 ```bash
 pip install linflex
