@@ -1,5 +1,6 @@
 from math import isclose, floor, ceil, pi as PI, inf as INF
 
+import pytest
 from linflex import Vec2
 
 
@@ -134,3 +135,21 @@ def test_round():
 def test_neg():
     v = Vec2(1, -1)
     assert -v == Vec2(-1, 1)
+
+
+def test_item_notation():
+    v = Vec2(3, 4)
+    assert v[0] == 3
+    assert v[1] == 4
+
+
+@pytest.mark.xfail(reason="Expecting `IndexError` when out of bounds")
+def test_getitem_notation_fails():
+    v = Vec2(3, 4)
+    _ = v[3]  # type: ignore
+
+
+@pytest.mark.xfail(reason="Expecting `IndexError` when out of bounds")
+def test_setitem_notation_fails():
+    v = Vec2(3, 4)
+    v[3] = 0  # type: ignore

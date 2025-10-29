@@ -1,5 +1,6 @@
 from math import isclose, floor, ceil, pi as PI, inf as INF
 
+import pytest
 from linflex import Vec3
 
 
@@ -156,3 +157,22 @@ def test_floor():
 def test_ceil():
     v = Vec3(2.2, -2.2, 1.9)
     assert ceil(v) == Vec3(3, -2, 2)
+
+
+def test_item_notation():
+    v = Vec3(3, 4, 5)
+    assert v[0] == 3
+    assert v[1] == 4
+    assert v[2] == 5
+
+
+@pytest.mark.xfail(reason="Expecting `IndexError` when out of bounds")
+def test_getitem_notation_fails():
+    v = Vec3(3, 4, 5)
+    _ = v[4]  # type: ignore
+
+
+@pytest.mark.xfail(reason="Expecting `IndexError` when out of bounds")
+def test_setitem_notation_fails():
+    v = Vec3(3, 4, 5)
+    v[3] = 0  # type: ignore

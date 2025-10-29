@@ -1,6 +1,6 @@
-from __future__ import annotations
+from __future__ import annotations as _annotations
 
-from typing import TypeAlias, TypeVar
+from typing import TypeAlias as _TypeAlias, TypeVar as _TypeVar
 
-Radians: TypeAlias = float
-Number = TypeVar("Number", int, float)
+Radians: _TypeAlias = float
+Number = _TypeVar("Number", int, float)

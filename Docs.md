@@ -21,6 +21,7 @@
     * [\_\_len\_\_](#linflex.Vec2.__len__)
     * [\_\_iter\_\_](#linflex.Vec2.__iter__)
     * [\_\_getitem\_\_](#linflex.Vec2.__getitem__)
+    * [\_\_setitem\_\_](#linflex.Vec2.__setitem__)
     * [\_\_abs\_\_](#linflex.Vec2.__abs__)
     * [\_\_round\_\_](#linflex.Vec2.__round__)
     * [\_\_floor\_\_](#linflex.Vec2.__floor__)
@@ -100,6 +101,7 @@
     * [\_\_len\_\_](#linflex.Vec3.__len__)
     * [\_\_iter\_\_](#linflex.Vec3.__iter__)
     * [\_\_getitem\_\_](#linflex.Vec3.__getitem__)
+    * [\_\_setitem\_\_](#linflex.Vec3.__setitem__)
     * [\_\_repr\_\_](#linflex.Vec3.__repr__)
     * [\_\_str\_\_](#linflex.Vec3.__str__)
     * [\_\_bool\_\_](#linflex.Vec3.__bool__)
@@ -458,19 +460,47 @@ Iterate over the components of the vector.
 ### `Vec2.__getitem__`
 
 ```python
-def __getitem__(item: Literal[0, 1]) -> float
+def __getitem__(axis_index: Literal[0, 1]) -> float
 ```
 
 Get a component by index.
 
 **Arguments**:
 
-- `item` _int_ - Index (`0` for `x`, `1` for `y`).
+- `axis_index` _int_ - Axis index, `0` for `x` and `1` for `y`.
   
 
 **Returns**:
 
 - `float` - Value of the component.
+  
+
+**Raises**:
+
+- `ValueError` - Invalid axis index.
+
+<a id="linflex.Vec2.__setitem__"></a>
+
+### `Vec2.__setitem__`
+
+```python
+def __setitem__(
+    axis_index: Literal[0, 1],
+    value: float,
+) -> None
+```
+
+Set a component by axis index.
+
+**Arguments**:
+
+- `axis_index` _int_ - Axis index, `0` for `x` and `1` for `y`.
+- `value` _float_ - New axis value.
+  
+
+**Raises**:
+
+- `ValueError` - Invalid axis index.
 
 <a id="linflex.Vec2.__abs__"></a>
 
@@ -1848,19 +1878,47 @@ Iterate over the components of the vector.
 ### `Vec3.__getitem__`
 
 ```python
-def __getitem__(item: Literal[0, 1, 2]) -> float
+def __getitem__(axis_index: Literal[0, 1, 2]) -> float
 ```
 
-Get a component by index.
+Get a component by axis index.
 
 **Arguments**:
 
-- `item` _int_ - Index (`0` for `x`, `1` for `y`, `2` for `z`).
+- `axis_index` _int_ - Axis index, `0` for `x`, `1` for `y` and `2` for `z`.
   
 
 **Returns**:
 
 - `float` - Value of the component.
+  
+
+**Raises**:
+
+- `ValueError` - Invalid axis index.
+
+<a id="linflex.Vec3.__setitem__"></a>
+
+### `Vec3.__setitem__`
+
+```python
+def __setitem__(
+    axis_index: Literal[0, 1],
+    value: float,
+) -> None
+```
+
+Set a component by axis index.
+
+**Arguments**:
+
+- `axis_index` _int_ - Axis index, `0` for `x`, `1` for `y` and `2` for `z`.
+- `value` _float_ - New axis value.
+  
+
+**Raises**:
+
+- `ValueError` - Invalid axis index.
 
 <a id="linflex.Vec3.__repr__"></a>
 

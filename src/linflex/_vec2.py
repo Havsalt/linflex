@@ -119,20 +119,43 @@ class Vec2:
         """
         return iter((self.x, self.y))
 
-    def __getitem__(self, item: Literal[0, 1]) -> float:
+    def __getitem__(self, axis_index: Literal[0, 1]) -> float:
         """Get a component by index.
 
         Args:
-            item (int): Index (`0` for `x`, `1` for `y`).
+            axis_index (int): Axis index, `0` for `x` and `1` for `y`.
 
         Returns:
             float: Value of the component.
+
+        Raises:
+            ValueError: Invalid axis index.
         """
-        if item == 0:
+        if axis_index == 0:
             return self.x
-        elif item == 1:
+        elif axis_index == 1:
             return self.y
-        raise ValueError(f"item '{item}' does not correspond to x or y axis.")
+        raise IndexError(
+            f"axis index '{axis_index}' does not correspond to x or y axis."
+        )
+
+    def __setitem__(self, axis_index: Literal[0, 1], value: float) -> None:
+        """Set a component by axis index.
+
+        Args:
+            axis_index (int): Axis index, `0` for `x` and `1` for `y`.
+            value (float): New axis value.
+
+        Raises:
+            ValueError: Invalid axis index.
+        """
+        if axis_index == 0:
+            self.x = value
+        elif axis_index == 1:
+            self.y = value
+        raise IndexError(
+            f"axis index '{axis_index}' does not correspond to x or y axis."
+        )
 
     def __abs__(self) -> Self:
         """Return a vector with absolute values of each component.

@@ -138,22 +138,47 @@ class Vec3:
         """
         return iter((self.x, self.y, self.z))
 
-    def __getitem__(self, item: Literal[0, 1, 2]) -> float:
-        """Get a component by index.
+    def __getitem__(self, axis_index: Literal[0, 1, 2]) -> float:
+        """Get a component by axis index.
 
         Args:
-            item (int): Index (`0` for `x`, `1` for `y`, `2` for `z`).
+            axis_index (int): Axis index, `0` for `x`, `1` for `y` and `2` for `z`.
 
         Returns:
             float: Value of the component.
+
+        Raises:
+            ValueError: Invalid axis index.
         """
-        if item == 0:
+        if axis_index == 0:
             return self.x
-        elif item == 1:
+        elif axis_index == 1:
             return self.y
-        elif item == 2:
+        elif axis_index == 2:
             return self.z
-        raise ValueError(f"item '{item}' does not correspond to x or y or z axis.")
+        raise IndexError(
+            f"axis index '{axis_index}' does not correspond to x or y or z axis."
+        )
+
+    def __setitem__(self, axis_index: Literal[0, 1], value: float) -> None:
+        """Set a component by axis index.
+
+        Args:
+            axis_index (int): Axis index, `0` for `x`, `1` for `y` and `2` for `z`.
+            value (float): New axis value.
+
+        Raises:
+            ValueError: Invalid axis index.
+        """
+        if axis_index == 0:
+            self.x = value
+        elif axis_index == 1:
+            self.y = value
+        elif axis_index == 2:
+            self.z = value
+        raise IndexError(
+            f"axis index '{axis_index}' does not correspond to x, y or z axis."
+        )
 
     def __repr__(self) -> str:
         """Create representation.
