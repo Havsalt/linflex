@@ -1,0 +1,32 @@
+# .pre-commit-config.yaml
+repos:
+  # ruff format & check
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.14.2
+    hooks:
+      - id: ruff
+        name: ruff format
+        entry: uv run ruff 
+        args:
+          - format
+          - --exit-non-zero-on-format
+        pass_filenames: false
+        always_run: true
+      - id: ruff
+        name: ruff check
+        entry: uv run ruff
+        args:
+          - check
+        pass_filenames: false
+        always_run: true
+  # pytest
+  - repo: local
+    hooks:
+      - id: pytest
+        name: pytest
+        entry: pytest
+        args:
+          - -q
+        language: system
+        pass_filenames: false
+        always_run: true
