@@ -3,10 +3,9 @@ from __future__ import annotations
 from math import sqrt, floor, ceil, cos, sin, atan2, inf as INF
 from typing import Iterator, Literal, Any
 
-from typing_extensions import Self
-
 from ._numerical_tools import lerp, sign, clamp, move_toward
 from ._class_constant import class_constant
+from .typing import Self
 
 
 class Vec3:

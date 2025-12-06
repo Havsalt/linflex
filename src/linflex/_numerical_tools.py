@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Literal
 
-from ._annotations import Number
+from .typing import Number
 
 
 def lerp(

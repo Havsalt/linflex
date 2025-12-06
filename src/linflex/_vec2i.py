@@ -2,11 +2,9 @@ from __future__ import annotations
 
 from math import isclose, cos, sin
 
-from typing_extensions import Self
-
 from ._vec2 import Vec2
 from ._numerical_tools import sign
-from ._annotations import Radians
+from .typing import Radians, Self
 
 
 class Vec2i(Vec2):
