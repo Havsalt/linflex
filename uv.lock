@@ -256,7 +256,7 @@ wheels = [
 
 [[package]]
 name = "linflex"
-version = "0.3.2"
+version = "0.3.3"
 source = { editable = "." }
 dependencies = [
     { name = "typing-extensions", marker = "python_full_version < '3.11'" },

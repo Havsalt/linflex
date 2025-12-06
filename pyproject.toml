@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "linflex"
-version = "0.3.2"
+version = "0.3.3"
 description = "A linear algebra package written in Python"
 authors = [
     { name = "Havsalt", email = "77575424+Havsalt@users.noreply.github.com" }
