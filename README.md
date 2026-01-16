@@ -14,10 +14,6 @@ uv add linflex
 pip install linflex
 ```
 
-```bash
-rye add linflex
-```
-
 ## Getting started
 
 ```python
