@@ -11,7 +11,8 @@ import nox_uv
     uv_sync_locked=False,
 )
 def test_different_python_versions(session: nox.Session) -> None:
-    session.run("uv", "sync", "-U", "--dry-run")  # Using the newest dependencies, in new venv
+    # Using the newest dependencies, in new venv
+    session.run("uv", "sync", "-U", "--dry-run")
     session.run("pytest")
 
 
