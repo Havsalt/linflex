@@ -7,7 +7,7 @@ A linear algebra package written in Python
 Install using your preferred Python package manager:
 
 ```bash
-uv pip install linflex
+uv add linflex
 ```
 
 ```bash
