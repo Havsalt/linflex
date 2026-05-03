@@ -12,10 +12,7 @@ jobs:
     name: Build and publish package to PyPI
     needs: run-tests  # Requires tests to pass
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.10", "3.13"]
-
+    
     steps:
     - uses: actions/checkout@v5
       with:
