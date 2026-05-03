@@ -5,7 +5,7 @@ from typing import Iterator, Literal, Any
 
 from ._numerical_tools import lerp, sign, clamp, move_toward
 from ._class_constant import class_constant
-from .typing import Self
+from .typing import _Self as Self
 
 
 class Vec3:

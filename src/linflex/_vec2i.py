@@ -4,7 +4,7 @@ from math import isclose, cos, sin
 
 from ._vec2 import Vec2
 from ._numerical_tools import sign
-from .typing import Radians, Self
+from .typing import Radians, _Self as Self
 
 
 class Vec2i(Vec2):
