@@ -97,6 +97,9 @@ class Vec2:
         self.x = x
         self.y = y
 
+    def __repr__(self) -> str:
+        return f"{self.__class__.__name__}({self.x}, {self.y})"
+
     def __reduce__(self) -> tuple[type[Self], tuple[float, float]]:
         """Helper for pickling support."""
         return (self.__class__, (self.x, self.y))

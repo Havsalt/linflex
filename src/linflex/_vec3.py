@@ -117,6 +117,9 @@ class Vec3:
         self.y = y
         self.z = z
 
+    def __repr__(self) -> str:
+        return f"{self.__class__.__name__}({self.x}, {self.y})"
+
     def __reduce__(self) -> tuple[type[Self], tuple[float, float]]:
         """Helper for pickling support."""
         return (self.__class__, (self.x, self.y))
@@ -178,22 +181,6 @@ class Vec3:
         raise IndexError(
             f"axis index '{axis_index}' does not correspond to x, y or z axis."
         )
-
-    def __repr__(self) -> str:
-        """Create representation.
-
-        Returns:
-            str: Representation containing the `x`, `y`, and `z` components.
-        """
-        return f"{self.__class__.__name__}({self.x}, {self.y}, {self.z})"
-
-    def __str__(self) -> str:
-        """Create string representation.
-
-        Returns:
-            str: Representation containing the `x`, `y`, and `z` components.
-        """
-        return f"{self.__class__.__name__}({self.x}, {self.y}, {self.z})"
 
     def __bool__(self) -> bool:
         """Return whether `x`, `y`, or `z` is not zero.
