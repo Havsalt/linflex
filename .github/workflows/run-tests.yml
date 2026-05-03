@@ -1,0 +1,27 @@
+name: Test with Pytest
+
+on: workflow_call
+
+jobs:
+  pytest:
+    name: CPython v${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        python-version: ["3.10", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v5
+      - name: Setup uv
+        # v8.1.0
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b
+        with:
+          python-version: ${{ matrix.python-version }}
+          enable-cache: true
+
+      - name: Sync venv with all dependencies
+        run: uv sync --all-extras --dev --no-progress
+
+      - name: Run tests
+        run: uv run pytest -x
