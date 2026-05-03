@@ -38,8 +38,6 @@
     * [\_\_iter\_\_](#linflex.Vec3.__iter__)
     * [\_\_getitem\_\_](#linflex.Vec3.__getitem__)
     * [\_\_setitem\_\_](#linflex.Vec3.__setitem__)
-    * [\_\_repr\_\_](#linflex.Vec3.__repr__)
-    * [\_\_str\_\_](#linflex.Vec3.__str__)
     * [\_\_bool\_\_](#linflex.Vec3.__bool__)
     * [\_\_abs\_\_](#linflex.Vec3.__abs__)
     * [\_\_round\_\_](#linflex.Vec3.__round__)
@@ -719,34 +717,6 @@ Set a component by axis index.
 **Raises**:
 
 - `ValueError` - Invalid axis index.
-
-<a id="linflex.Vec3.__repr__"></a>
-
-### `Vec3.__repr__`
-
-```python
-def __repr__() -> str
-```
-
-Create representation.
-
-**Returns**:
-
-- `str` - Representation containing the `x`, `y`, and `z` components.
-
-<a id="linflex.Vec3.__str__"></a>
-
-### `Vec3.__str__`
-
-```python
-def __str__() -> str
-```
-
-Create string representation.
-
-**Returns**:
-
-- `str` - Representation containing the `x`, `y`, and `z` components.
 
 <a id="linflex.Vec3.__bool__"></a>
 
