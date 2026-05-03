@@ -1,5 +1,5 @@
 [build-system]
-requires = ["uv_build~=0.8.15"]
+requires = ["uv_build~=0.11.0"]
 build-backend = "uv_build"
 
 [project]
@@ -9,12 +9,14 @@ description = "A linear algebra package written in Python"
 authors = [
     { name = "Havsalt", email = "77575424+Havsalt@users.noreply.github.com" }
 ]
-dependencies = [
-    "typing-extensions>=4.4.0 ; python_version < '3.11'",
-]
 readme = "README.md"
-license = { file = "LICENSE" }
-requires-python = ">= 3.10"
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+requires-python = ">=3.10"
+keywords = [
+    "math", "math-functions",
+    "vector", "vec2", "vec3",
+]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -32,9 +34,9 @@ classifiers = [
     "Topic :: Utilities",
     "Typing :: Typed",
 ]
-
-[project.urls]
-Source = "https://github.com/havsalt/linflex.git"
+dependencies = [
+    "typing-extensions>=4.4.0 ; python_version < '3.11'",
+]
 
 [dependency-groups]
 dev = [
@@ -45,6 +47,13 @@ dev = [
     "nox>=2025.11.12",
     "nox-uv~=0.7.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/havsalt/linflex"
+Repository = "https://github.com/havsalt/linflex"
+Documentation = "https://github.com/havsalt/linflex/blob/main/Docs.md"
+Issues = "https://github.com/havsalt/linflex/issues"
+Changelog = "https://github.com/havsalt/linflex/blob/main/CHANGELOG.md" 
 
 [[tool.pydoc-markdown.loaders]]
 type = "python"
