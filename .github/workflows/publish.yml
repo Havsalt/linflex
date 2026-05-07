@@ -20,7 +20,8 @@ jobs:
     - uses: actions/checkout@v5
       with:
         persist-credentials: false
-    # v8.1.0
+    # uv: v8.1.0
     - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b
+    - run: uv sync --locked
     - run: uv build
     - run: uv publish
